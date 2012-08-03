@@ -1,10 +1,12 @@
 ---
 title: Aeolus | Basic Glossary
 ---
-%h1 Basic Glossary for Aeolus 0.9.0
+%h1 Basic Glossary for Aeolus 0.10.0
 
 %p
   Before we get started with the initial configuration, here are some terms and definitions that will be useful to know.
+%p
+  This page will also include a diagram explaining the Conductor UI Dependencies.
 
 = render 'gsg_navigation', :selected_page => 'basic_glossary.html'
 
@@ -36,7 +38,7 @@ title: Aeolus | Basic Glossary
     A Conductor image contains provider-independent metadata that Aeolus can use to generate disk images on supported providers.
 
   %p
-    This guide will create an image for Fedora 15.
+    This guide will create an image for Fedora 16.
 
 %br
 
@@ -67,6 +69,47 @@ title: Aeolus | Basic Glossary
 
 %br
 
+
+.section-grouping
+  %h2(id="first-login") 7. Audrey
+
+  %p
+    Set of tools for run-time configuration on Cloud instances. Enables user to perform further configuration using customizable script.
+
+%br
+
+
+.section-grouping
+  %h2(id="first-login") 7. Runtime Configuration
+
+  %p
+    Using run-time configuration provides server-side APIs that let you create and delete data components. 
+
+%br
+
+.section-grouping
+  %h2(id="first-login") 7. AMI
+
+  %p
+    Amazon Machine Image
+
+%br
+
+.section-grouping
+  %h2(id="first-login") 7. Conductor UI Diagram
+
+  %p
+    This diagram is a flow chart of the dependencies required for Conductor as of July 2012. 
+
+  %p
+    %center
+      %a{ :href => "Images/Glossary Images/current_ui_structure.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/current_ui_structure_thumb.png",
+              :title => "UI Structure - click to view at full size in a new window",
+              :alt => "UI Structure - click to view at full size in a new window" }
+
+%br
 %a.button{ :href => "configuring_aeolus.html", :title => "Configuring Aeolus" }
   Configuring Aeolus
   %img{:src => "/images/button-right.png", :alt => "→"}

@@ -35,30 +35,166 @@ title: Aeolus | Use It
     %li
       %a{ :href => "gsg/0.10.0/first_login.html",
           :title => "First login" } First login
+      %ol
+        %li
+          %a{ :title => "Web Based Interface"} Web Based Interface
+        %li
+          %a{ :title => "Welcome Screen"} Welcome Screen
+
+
+              
 
     %li
       %a{ :href => "gsg/0.10.0/configure_providers.html",
-          :title => "Configure your Cloud Providers" } Configure your Cloud Providers
+          :title => "Configure Providers" } Configure Providers
+      %ol
+        %li
+          %a{ :title => "Configuring EC2 Provider"} Configuring EC2 Provider
+        %li
+          %a{ :title => "Configure RHEVM/Ovirt Provider"} Configure RHEVM/Ovirt Provider
+        %li
+          %a{ :title => "Audrey configuration"} Audrey configuration
+        %li
+          %a{ :title => "Creating a Cloud"} Creating A Cloud
+              
 
-    %li
-      %a{ :href => "gsg/0.10.0/configure_cli.html",
-          :title => "Configure the Aeolus Command Line Interface tool" } Configure the Aeolus Command Line Interface tool
 
     %li
       %a{ :href => "gsg/0.10.0/make_template.html",
-          :title => "Create a Fedora 15 Template" } Create a Fedora 15 Template
+          :title => "Create a Fedora 16 Template" } Create a Fedora 16 Template
+      %ol
+        %li
+          %a{ :title => "Creating the Template"} Creating the Template
+              
+              
+        %li
+          %a{ :title => "Building a Template into an Image"} Building A Template into an Image
+              
+        %li
+          %a{ :title => "Pushing a Template into an Image"} Pushing A Template into an Image
+              
+        %li
+          %a{ :title => "Importing an Image from a Provider"} Importing an Image from a Provider
+              
+
+    %li
+      %a{ :href => "gsg/0.10.0/command_cli.html",
+          :title => "Configure Command Line Interface Tool" } Configure Command Line Interface Tool
+      %ol
+        %li
+          %a{ :title => "Update Aeolus CLI Configuration"} Update Aeolus CLI Configuration
+        %li
+          %a{ :title => "Building an Image with Aeolus Command Line"} Building an Image with Aeolus Command Line
+              
+        %li
+          %a{ :title => "Command Line Syntax"} Command Line Syntax
+              
 
     %li
       %a{ :href => "gsg/0.10.0/start_image.html",
           :title => "Start an Instance of the Image" } Start an Instance of the Image
+      %ol
+        %li
+          %a{ :title => "Create a Catalogue"} Create a Catalogue
+              
+        %li
+          %a{ :title => "Create the Deployable"} Create the Deployable
+              
+        %li
+          %a{ :title => "Configure EC2 for SSH Connections"} Configure EC2 for SSH Connections
+              
+        %li
+          %a{ :title => "Connect to the Instance"} Connect to the Instance,
+              
+
+    %li
+      %a{ :href => "gsg/0.10.0/runtime_config.html",
+          :title => "Runtime Configuration" } Runtime Configuration
+      %ol
+        %li
+          %a{ :title => "Adding Audrey to an Instance of the Image"} Adding Audrey to an Instance of the Image
+              
+        %li
+          %a{ :title => "Adding Runtime Configuration to a Deployable"} Adding Runtime Configuration to a Deployable
+              
+        %li
+          %a{ :title => "Launching Instances with Runtime Configuration"} Launching Instances with Runtime Configuration
+              
+
+    %li
+      %a{ :href => "gsg/0.10.0/users.html",
+          :title => "Users" } Users
+      %ol
+        %li
+          %a{ :title => "How to Edit and Delete Users"} How to Edit and Delete Users
+              
+        %li
+          %a{ :title => "User Groups"} User Groups
+              
+
+    %li
+      %a{ :href => "gsg/0.10.0/permissions.html",
+          :title => "Permissions" } Permissions
+      %ol
+        %li
+          %a{ :title => "Global Permissions"} Global Permissions
+              
+        %li
+          %a{ :title => "Provider Permissions"} Provider Permissions
+              
+        %li
+          %a{ :title => "Pool Permissions"} Pool Permissions
+              
+        %li
+          %a{ :title => "Deployable Permissions"} Deployable Permissions
+              
 
     %li
       %a{ :href => "gsg/0.10.0/stop_image.html",
           :title => "Stop a running Instance" } Stop a running Instance
+      %ol
+        %li
+          %a{ :title => "Stopping the Instance"} Stopping the Instance
+              
+        %li
+          %a{ :title => "Check for Instances left running in EC2"} Check for Instances left running in EC2,
+              
+    %li
+      %a{ :href => "gsg/0.10.0/logging_reporting.html",
+          :title => "Logging and Reporting" } Logging and Reporting
+      %ol
+        %li
+          %a{ :title => "Accessing Aeolus Log Files"} Accessing Aeolus Log
+              
+        %li
+          %a{ :title => "Accessing Instance History"} Accessing Instance History
+              
+        %li
+          %a{ :title => "Exporting History"} Exporting History
+
+              
+
 
     %li
       %a{ :href => "gsg/0.10.0/cleaning_up.html",
           :title => "Cleaning up" } Cleaning up
+      %ol
+        %li
+          %a{ :title => "Unconfiguring Aeolus"} Unconfiguring Aeolus
+              
+        %li
+          %a{ :title => "Remove AMI's left in EBS"} Remove AMI's left in EBS
+              
+          %ul
+            %li
+              %a{ :title => "Deregistering an AMI"} Deregistering an AMI
+                  
+            %li
+              %a{ :title => "Removing S3 Storage"} Removing S3 Storage             
+              
+        %li
+          %a{ :title => "Next Steps"} Next Steps
+              
 
 
   %h3 Aeolus 0.9.0

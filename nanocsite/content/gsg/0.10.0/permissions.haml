@@ -1,0 +1,146 @@
+---
+title: Aeolus | Permissions
+---
+%h1 Permissions
+
+= render 'gsg_navigation', :selected_page => 'permissions.html'
+
+%ul
+  %li
+    %a(href="#global" title="Global Permissions")
+      Global Permissions
+
+  %li
+    %a(href="#provider" title="Provider Permissions")
+      Provider Permissions
+
+  %li
+    %a(href="#pool" title="Pool Permissions")
+      Pool Permissions
+
+  %li
+    %a(href="#deploy_perm" title="Deployable Permissions")
+      Deployable Permissions
+
+%br
+
+
+%h1(id="global" style="margin-top:0")
+.section-grouping
+  %h2 1. Global Permissions
+
+  %ol
+    %li
+    Click on the 
+    %b Administer tab
+    &rArr; <b>Global Role Grants</b>.
+    %li
+    Click on the Grant Access button. The provider access selection screen appears.
+    %li
+    Choose a Role from the drop-down menu for each user.
+    %li
+    Click Grant Access to save your permissions. 
+
+  %p
+    %center
+      %a{ :href => "Images/Permission Images/global_image.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/global_image_thumb.png",
+              :title => "Message indicating user update was successful - click to view at full size in a new window",
+              :alt => "Message indicating user update was successful - click to view at full size in a new window" }
+
+%br
+
+%h1(id="provider" style="margin-top:0")
+.section-grouping
+  %h2 2. Provider Permissions
+
+  %ol
+    %li
+    Click on the 
+    %b Administer tab
+    &rArr; <b>Cloud Providers</b>.
+    %li
+    Click on Role Assignments. The current list of users with access to the chosen provider displays.
+    %li
+    Click on the Grant Access button. The provider access selection screen appears.
+    %li
+    Choose a Role from the drop-down menu for each user.
+    %li
+    Click Grant Access to save your permissions. 
+
+  %p
+    %center
+      %a{ :href => "Images/Permission Images/provider_permissions.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/provider_permissions_thumb.png",
+              :title => "Message indicating user update was successful - click to view at full size in a new window",
+              :alt => "Message indicating user update was successful - click to view at full size in a new window" }
+
+%br
+
+%h1(id="pool" style="margin-top:0")
+.section-grouping
+  %h2 3. Pool Permissions
+
+  %ol
+    %li
+    Click on the Monitor tab.
+    %li
+    Click the name of the pool you wish to add permissions to.
+    %li
+    Click the name of an application in the 
+    %b cloud resource zone
+    &rArr; <b>Role Assignments:</b> the current list of users with access displays.
+    %li
+    Click on the Grant Access button. The application access selection screen appears.
+    %li
+    Choose a Role from the drop-down menu for each user.
+    %li
+    Click Grant Access to save your permissions. 
+
+  %p
+    %center
+      %a{ :href => "Images/Permission Images/pool_permissions.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/pool_permissions_thumb.png",
+              :title => "Message indicating user update was successful - click to view at full size in a new window",
+              :alt => "Message indicating user update was successful - click to view at full size in a new window" }
+
+%br
+
+%h1(id="deploy_perm" style="margin-top:0")
+.section-grouping
+  %h2 4. Deployable Permissions
+
+  %ol
+    %li
+    Click on the 
+    %b Administer tab.
+    &rArr; <b>Content</b>.
+    %li
+    Click on the Name of a catalog. A list of the catalog's deployables displays.
+    %li
+    Click on the Name of the deployables. The deployable's properties displays.
+    %li
+    Scroll to the Role Assignments section.
+    %li
+    Click on the Grant Access button. The deployable access selection screen appears.
+    %li
+    Choose a Role from the drop-down menu for each user.
+    %li
+    Click Grant Access to save your permissions.
+
+  %p
+    %center
+      %a{ :href => "Images/Permission Images/deployable_permissions.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/deployable_permissions_thumb.png",
+              :title => "Message indicating user update was successful - click to view at full size in a new window",
+              :alt => "Message indicating user update was successful - click to view at full size in a new window" } 
+
+%br
+
+%a.button{ :href => "stop_image.html", :title => "Stop Image" }
+  Stop a Running Instance
+  %img{:src => "/images/button-right.png", :alt => "→"}

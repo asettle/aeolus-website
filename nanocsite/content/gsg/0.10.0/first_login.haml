@@ -5,14 +5,26 @@ title: Aeolus | First login
 
 %p
   On this page, you will log into Aeolus, be introduced to the main parts of
-  the web based interface, and change the administrator password.
+  the web based interface.
 
 = render 'gsg_navigation', :selected_page => 'first_login.html'
 
-%br
 
+%ul
+  %li
+    %a(href="#web_interface" title="Web Based Interface")
+      Web Based Interface
+
+  %li
+    %a(href="#welcome" title="Welcome Screen")
+      Welcome Screen
+
+
+
+%br
+%h1(id="web_interface" style="margin-top:0") 
 .section-grouping
-  %h2(id="first-login") 1. Web based interface
+  %h2 1. Web based interface
 
   %p
     After Aeolus has been initialized, with any firewall updates done, you
@@ -41,11 +53,13 @@ title: Aeolus | First login
 
   %p
     %center
-      %a{ :href => "images/initial_login_screen.png",
+      %a{ :href => "Images/First Login Page images/initial_login_screen.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/initial_login_screen_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/initial_login_screen_thumb.png",
               :title => "Initial login screen - click to view at full size in a new window",
-              :alt => "Initial login screen - click to view at full size in a new window" }
+              :alt => "Initial login screen - click to view at full size in a new window", 
+              :width => "500",
+              :height => "350"}
 
   %p
     Login now, using the default administrator details set by
@@ -65,20 +79,20 @@ title: Aeolus | First login
     the major parts of the Aeolus interface.
 
 %br
-
+%h1(id="welcome" style="margin-top:0") 
 .section-grouping
-  %h2(id="welcome") 2. Welcome screen
+  %h2 2. Welcome screen
 
   %p
     Once you've logged in, the main Aeolus web interface appears:
 
   %p
     %center
-      %a{ :href => "images/initial_welcome_screen.png",
+      %a{ :href => "Images/First Login Page Images/welcome_screen.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/initial_welcome_screen_thumb.png",
-              :title => "Initial welcome screen - click to view at full size in a new window",
-              :alt => "Initial welcome screen - click to view at full size in a new window" }
+        %img.thumbnail{ :src => "Images/Thumbnails/welcome_screen_thumb.png",
+              :title => "Welcome screen - click to view at full size in a new window",
+              :alt => "Welcome screen - click to view at full size in a new window" }
 
   %p
     The important parts are:
@@ -111,9 +125,9 @@ title: Aeolus | First login
             %em Administer
             tab switches the view to general configuration settings.
     %center
-      %a{ :href => "images/initial_welcome_screen_section_tabs.png",
+      %a{ :href => "Images/First Login Page Images/welcome_screen_tabs.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/initial_welcome_screen_section_tabs_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/welcome_screen_tabs_thumb.png",
               :title => "Section tabs - click to view at full size in a new window",
               :alt => "Section tabs - click to view at full size in a new window" }
 
@@ -130,9 +144,9 @@ title: Aeolus | First login
           The title, options, and content in this area change as you perform
           different tasks in Aeolus.
     %center
-      %a{ :href => "images/initial_welcome_screen_view.png",
+      %a{ :href => "Images/First Login Page Images/welcome_screen_view.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/initial_welcome_screen_view_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/welcome_screen_view_thumb.png",
               :title => "View - click to view at full size in a new window",
               :alt => "View - click to view at full size in a new window" }
 
@@ -152,9 +166,9 @@ title: Aeolus | First login
           Detail view is represented by the "table" or "grid" icon, and presents a more detailed view of content. In some cases,
           detail view will present some controls that are not present in pretty view. For now, we will stay in pretty view.
     %center
-      %a{ :href => "images/initial_welcome_screen_view_options.png",
+      %a{ :href => "Images/First Login Page Images/welcome_screen_viewoptions.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/initial_welcome_screen_view_options_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/welcome_screen_viewoptions_thumb.png",
               :title => "View options - click to view at full size in a new window",
               :alt => "View options - click to view at full size in a new window" }
 
@@ -165,9 +179,9 @@ title: Aeolus | First login
         View commands represent action buttons based on the objects you are viewing. Depending on the page you are on, these actions
         may include creating a new pool, deleting a user, launching an instance, etc.
     %center
-      %a{ :href => "images/initial_welcome_screen_view_commands.png",
+      %a{ :href => "Images/First Login Page Images/welcome_screen_viewcommands.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/initial_welcome_screen_view_commands_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/welcome_screen_viewcommands_thumb.png",
               :title => "View commands - click to view at full size in a new window",
               :alt => "View commands - click to view at full size in a new window" }
 
@@ -178,76 +192,15 @@ title: Aeolus | First login
         The user menu contains actions for the currently logged-in user, including the ability to edit your account
         preferences and to log out.
     %center
-      %a{ :href => "images/initial_welcome_screen_user_options.png",
+      %a{ :href => "Images/First Login Page Images/welcome_screen_usermenu.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/initial_welcome_screen_user_options_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/welcome_screen_usermenu_thumb.png",
               :title => "User options menu - click to view at full size in a new window",
               :alt => "User options menu - click to view at full size in a new window" }
 
 %br
 
-.section-grouping
-  %h2(id="change-passwd") 3. Change the administrator password
 
-  %p
-    In the top right corner of the interface, click on the silhouette button
-    next to "<b>aeolus user</b>".  The user options menu will appear.
-
-  %p
-    Then click "<b>My Account</b>".  This is a shortcut to your user
-    information view in the
-    %em Administer
-    sections' "<b>Users and Groups</b>" area.
-
-  %p
-    %center
-      %img.thumbnail{ :src => "images/user_account_shortcut.png",
-              :title => "User information shortcut",
-              :alt => "User information shortcut" }
-
-  %p
-    Click the "<b>Edit</b>" button on the user's business card.
-
-  %p
-    %center
-      %a{ :href => "images/aeolus_user_view.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/aeolus_user_view_thumb.png",
-              :title => "User information view - click to view at full size in a new window",
-              :alt => "User information view - click to view at full size in a new window" }
-
-  %p
-    This loads the "<b>Edit User</b>" view:
-
-  %p
-    %center
-      %a{ :href => "images/edit_user_view.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/edit_user_view_thumb.png",
-              :title => "Edit user view - click to view at full size in a new window",
-              :alt => "Edit user view - click to view at full size in a new window" }
-
-  %p
-    Change the password now, using the "<b>Change password</b>" and
-    "<b>Confirm password</b>" fields.
-    %br
-    %br
-    If you want, also change the First name, Last name, and E-mail fields.
-
-  %p
-    Click the "<b>Save User</b>" button when you're done.  A message
-    confirming the change should appear:
-
-  %p
-    %center
-      %a{ :href => "images/user_update_successful.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/user_update_successful_thumb.png",
-              :title => "Message indicating user update was successful - click to view at full size in a new window",
-              :alt => "Message indicating user update was successful - click to view at full size in a new window" }
-
-%br
-
-%a.button{ :href => "configure_providers.html", :title => "Configure your Cloud Providers" }
-  Configure your Cloud Providers
+%a.button{ :href => "configure_providers.html", :title => "Configure Providers" }
+  Configure Providers
   %img{:src => "/images/button-right.png", :alt => "→"}

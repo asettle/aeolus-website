@@ -1,38 +1,51 @@
 ---
-title: Aeolus | Configure your Cloud Providers
+title: Aeolus | Configure Providers
 ---
-%h1 Configure your Cloud Providers
+%h1 Configure Providers
 
 %p
   On this page we configure Aeolus for <b>Mock</b>, a <i>pretend</i>
   Cloud Provider.  It is useful for demonstration and testing purposes.
 
 %p
-  We also (optionally) configure for EC2.  This requires an existing Amazon
+  This section will configure for EC2 and RHEVM/Ovirt.  This requires an existing Amazon
   AWS account.  You can skip this part if you want.
+
+%p
+  We will also configure Audrey Configuration and finally run through the steps of creating a cloud.
 
   %h2 Which provider would you like to configure?
 
   %ul
     %li
-      %a(href="#mock" title="Mock Provider")
-        Mock Provider
+      %a(href="#mock" title="Test Provider")
+        Test Provider
 
     %li
-      %a(href="#ec2" title="Amazon EC2")
-        Amazon EC2
+      %a(href="#ec2" title="Configuring EC2 Provider")
+        Configuring EC2 Provider
+
+    %li
+      %a(href="#RHEVM/Ovirt" title="Configure RHEVM/Ovirt Provider")
+        Configure RHEVM/Ovirt Provider
+
+    %li
+      %a(href="#cloud" title="Creating A Cloud")
+        Creating A Cloud
 
 = render 'gsg_navigation', :selected_page => 'configure_providers.html'
 
 %br
 
-%h1(id="mock" style="margin-top:0") Mock Provider
+%h1(id="mock" style="margin-top:0") Test Provider
 
 .section-grouping
-  %h2 1. Confirm the Mock Provider account exists
+  %h2 Confirm the Test Provider account exists
 
   %p
-    The mock provider account should already exist.  Follow these steps to confirm.
+    The test provider is enabled so you can follow this guide without incurring charges from another provider.
+  %p
+    The test provider account should already exist.  Follow these steps to confirm.
 
   %p
     %ol
@@ -43,13 +56,21 @@ title: Aeolus | Configure your Cloud Providers
         &rArr; <b>Cloud Providers</b>.
 
       %li
-        Choose the mock provider in the upper right hand corner.
+        Choose the 'testing' provider in the upper right hand corner.
 
       %li
         Click "Accounts" just below the choose provider selector.
 
       %li
-        An account name "mock" should already exist.
+        An account name "Testing" should already exist.
+
+  %p
+    %left
+      %a{ :href => "Images/Configure Provider Images/testing_image.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/testing_image_thumb.png",
+              :title => "Testing Image - click to view at full size in a new window",
+              :alt => "Testing Image - click to view at full size in a new window"}
 
   %p
     If the account doesn't exist, you can create it by following these steps:
@@ -62,13 +83,15 @@ title: Aeolus | Configure your Cloud Providers
         For
         %b Account name
         use
-        "<em>mock</em>". For
+        "<em>test</em>". For
         %b Username
         use
-        "<em>mockuser</em>". For
+        "<em>testuser</em>". For
         %b Password
         use
-        "<em>mockpassword</em>".
+        "<em>testpassword</em>".
+
+
 
 %br
 
@@ -106,7 +129,7 @@ title: Aeolus | Configure your Cloud Providers
 %br
 
 .section-grouping
-  %h2(id="cred") 1. Configure EC2 credentials in Aeolus
+  %h2(id="cred") 1. Configure EC2 Provider
 
   %p Follow these steps to configure Amazon EC2 with Aeolus.
 
@@ -119,13 +142,11 @@ title: Aeolus | Configure your Cloud Providers
 
   %p
     %center
-      %a{ :href => "images/click_cloud_providers.png",
+      %a{ :href => "Images/Configure Provider Images/click_cloud_providers.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/click_cloud_providers_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/click_cloud_providers_thumb.png",
               :title => "Click the Cloud Providers button - click to view at full size in a new window",
-              :alt => "Click the Cloud Providers button - click to view at full size in a new window",
-              :width => "500",
-              :height => "305"}
+              :alt => "Click the Cloud Providers button - click to view at full size in a new window",}
 
   %p
     Amazon EC2 was automatically populated by the
@@ -153,33 +174,73 @@ title: Aeolus | Configure your Cloud Providers
 
   %p
     %center
-      %a{ :href => "images/fill_in_ec2_account_details.png",
+      %a{ :href => "Images/Configure Provider Images/fill_in_ec2_account_details.png",
           :target => "_blank" }
-        %img.thumbnail{ :src => "images/thumbnails/fill_in_ec2_account_details_thumb.png",
+        %img.thumbnail{ :src => "Images/Thumbnails/fill_in_ec2_account_details_thumb.png",
               :title => "Fill in AWS account details - click to view at full size in a new window",
-              :alt => "Fill in AWS account details - click to view at full size in a new window",
-              :width => "500",
-              :height => "408"}
+              :alt => "Fill in AWS account details - click to view at full size in a new window"}
 
   %p When you are done, click the "<b>Save</b> button".
 
 .section-grouping
-  %h2(id="testacct") 2. Verify the account details work
+  %ul(id="testacct") 
+    %li 1.1 Verify the account details work
 
   %p After saving the account above, you can press the "Test Connection" button to test your credentials.
 
+
+%br
+%h1(id="RHEVM/Ovirt" style="margin-top:0") 
+.section-grouping
+  %h2(id="testacct") 2. Configure RHEVM/Ovirt Provider - DRAFTING
+
   %p
-    %center
-      %a{ :href => "images//ec2_account_testing.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "images//thumbnails/ec2_account_testing_thumb.png",
-              :title => "Account properties view - click to view at full size in a new window",
-              :alt => "Account properties view - click to view at full size in a new window",
-              :width => "500",
-              :height => "269"}
+    If you intend to build images for these setups, you must be running Aeolus on bare metal with hardware virtualization capabilities. Image building is not possible within a virtual machine.
 
 %br
 
-%a.button{ :href => "make_template.html", :title => "Create A Fedora 15 Template" }
-  Make Image
+%h1(id="cloud" style="margin-top:0")
+.section-grouping
+  %h2(id="cloud") 3. Configuring Pools
+
+  %p A cloud, put simply, is a 'storage capacity as a service'. It entrusts services with a users data, software and computation over a network.
+
+
+  %p To create a cloud, follow these steps:
+  %ol
+    %li 
+      Click on the 
+      %b Administer tab
+      &rArr; <b>Environments</b>. This displays a list of your pools.
+  %p
+    %center
+      %a{ :href => "Images/Configure Provider Images/create_cloud.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/create_cloud_thumb.png",
+              :title => "Testing Image - click to view at full size in a new window",
+              :alt => "Testing Image - click to view at full size in a new window" }
+  %ol
+    %li   
+      Click the New Pool Family button.
+    %li 
+      Specify a valid Pool Family Name.
+    %li 
+      Specify the Maximum Running Instances. Leave this field blank for unlimited instances.
+    %li 
+      Click the Save button to save your new pool. 
+
+  %p
+    %center
+      %a{ :href => "Images/Configure Provider Images/new_pool.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/new_pool_thumb.png",
+              :title => "Testing Image - click to view at full size in a new window",
+              :alt => "Testing Image - click to view at full size in a new window" }
+
+
+
+%br
+
+%a.button{ :href => "make_template.html", :title => "Create A Fedora 16 Template" }
+  Create A Fedora 16 Template
   %img{:src => "/images/button-right.png", :alt => "→"}

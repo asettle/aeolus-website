@@ -1,0 +1,69 @@
+---
+title: Aeolus | Logging and Reporting
+---
+%h1 Logging and Reporting
+
+= render 'gsg_navigation', :selected_page => 'logging_reporting.html'
+
+
+%ul
+  %li
+    %a(href="#instance" title="Accessing Instance History")
+      Accessing Instance History
+
+  %li
+    %a(href="#exporting" title="Exporting Instance History")
+      Exporting Instance History
+
+%br
+
+%h1(id="instance" style="margin-top:0")
+.section-grouping
+  %h2 1. Accessing Instance History
+
+  %ol
+    %li
+      Click on the Monitor tab.
+    %li
+      Click the name of a deployment in the pools.
+    %li
+      Choose the tabled view icon and select the name of the instance. The instance information screen displays.  
+
+  %p
+    %left
+      %a{ :href => "Images/Logging and Reporting Images/accessing_image.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/accessing_image_thumb.png"}
+
+%br
+
+%h1(id="exporting" style="margin-top:0")
+.section-grouping
+  %h2 2. Exporting Instance History
+
+  %ol
+    %li
+      Click on the Monitor tab.
+    %li
+      The list of pools will be available.
+    %li
+      Immediately choose the Tabled View icon in the top right hand corner next to 'New Pool'.
+    %li
+      Click the 'Instances' button
+    %li
+      There will be a wheel icon next to 'reboot selected instances'. Click this and choose the option 'export events.'
+    %li
+      Your browser asks for a location to save the CSV file. Choose a location and save. 
+
+  %p
+    %center
+      %a{ :href => "Images/Logging and Reporting Images/export_events.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/export_events_thumb.png"}
+
+
+%br
+
+%a.button{ :href => "cleaning_up.html", :title => "Cleaning Up" }
+  Cleaning Up
+  %img{:src => "/images/button-right.png", :alt => "→"}

@@ -10,8 +10,23 @@ title: Aeolus | Cleaning up
 
 %br
 
+%ul
+  %li
+    %a(href="#unconfig" title="Unconfiguring Aeolus")
+      Unconfiguring Aeolus
+
+  %li
+    %a(href="#remove" title="Remove AMI's left in EBS")
+      Remove AMI's left in EBS
+
+  %li
+    %a(href="#next" title="Next Steps")
+      Next Steps
+%br
+
+%h1(id="unconfig" style="margin-top:0")
 .section-grouping
-  %h2 Unconfiguring Aeolus
+  %h2 1. Unconfiguring Aeolus
 
   %p
     To remove all of the configuration data and database entries from an Aeolus server, run the
@@ -40,24 +55,25 @@ title: Aeolus | Cleaning up
     keep.
 
   %p
-    If you are using Amazon EC2, follow the next steps to complete the cleanup.
+    If you are using Amazon EBS, follow the next steps to complete the cleanup.
 %br
 
+%h1(id="remove" style="margin-top:0")
 .section-grouping
-  %h2 Remove any AMIs left in EC2 and storage left in S3
+  %h2 2. Remove any AMIs left in EBS 
 
   %p
     Aeolus does not yet de-register AMIs, nor delete their corresponding
-    storage from S3.  For now, you will need to use the AWS Management
+    storage from EBS.  For now, you will need to use the AWS Management
     Console to de-register AMIs and delete S3 storage yourself.
 
   %br
-
-  %h3 De-registering an AMI
+  %h3(id="deregistering" style="margin-top:0") 
+  %h3 1.1 De-registering an AMI
 
   %p
     Load Amazons' AWS Management Console, make sure you are in the
-    %b EC2
+    %b EBS
     section, then change to the AMIs page.
 
   %p
@@ -70,21 +86,21 @@ title: Aeolus | Cleaning up
 
   %p
     &nbsp;&nbsp;&nbsp;
-    %img{ :src => "images/ec2_deregister_ami.png",
+    %img{ :src => "Images/Cleaning Up Images/ec2_deregister_ami.png",
           :title => "Deregister EC2 AMIs",
           :alt => "Deregister EC2 AMIs" }
 
   %p
     This removes the selected AMIs from your AMI list.  Their storage needs
-    to be removed from S3 next.
+    to be removed from EBS next.
 
   %br
-
-  %h3 Removing S3 storage
+  %h3(id="removing" style="margin-top:0") 
+  %h3 1.2 Removing EBS storage
 
   %p
     Load Amazons' AWS Management Console, and make sure you are in the
-    %b S3
+    %b EBS
     section.
 
   %p
@@ -99,6 +115,7 @@ title: Aeolus | Cleaning up
 
 %br
 
+%h1(id="next" style="margin-top:0")
 .section-grouping
   %h2 Next Steps
 

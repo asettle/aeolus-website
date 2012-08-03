@@ -1,0 +1,115 @@
+---  
+title: Aeolus | Runtime Configuration
+---
+%h1 Runtime Configuration
+
+
+= render 'gsg_navigation', :selected_page => 'runtime_config.html'
+
+
+%ul
+  %li
+    %a(href="#adding_audrey" title="Adding Audrey to an Instance of the Image")
+      Adding Audrey to an Instance of the Image
+
+  %li
+    %a(href="#adding_config" title="Adding Runtime Configuration to a Deployable")
+      Adding Runtime Configuration to a Deployable
+
+  %li
+    %a(href="#launching_config" title="Launching Instances with a Runtime Configuration")
+      Launching Instances with a Runtime Configuration
+
+%br
+
+
+%h1(id="adding_audrey" style="margin-top:0")
+.section-grouping
+  %h2 1. Adding Audrey to an Instance of the Image
+
+  %p
+    The following instructions add Audrey Agent to the template, which when built and pushed, becomes the image.
+
+  %ol
+    %li     
+    When uploading the TDL template file, make sure you click the option to 'edit' your file before you build your iamge.
+    %li
+    Add this line:
+
+  %p
+    %center
+      %a{ :href => "Images/Runtime Images/template_audrey.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Runtime Images/template_audrey.png",
+              :title => "Template Image - click to view at full size in a new window",
+              :alt => "Template Image - click to view at full size in a new window" }
+
+
+
+%h1(id="adding_config" style="margin-top:0")
+.section-grouping
+  %h2 2. Adding Runtime Configuration to a Deployable
+
+  %p
+  Open the deployable:
+  %ol
+    %li
+    Click on the 
+    %b Administer tab
+    &rArr; <b>Content</b>. This displays a list of your catalogues.
+    %li
+    Choose a catalog with deployables to edit. Click on the Name link.
+    %li
+    Click on the Name link of the deployable to edit.
+    %li
+    Click on the Edit XML button. 
+    %li
+    Edit the desired section of the deployable to add runtime configuration.
+
+  %p
+    %center
+      %a{ :href => "Images/Runtime Images/edit_XML.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/edit_XML_thumb.png",
+              :title => "Edit XML Image - click to view at full size in a new window",
+              :alt => "Edit XML Image - click to view at full size in a new window" }
+
+%br
+
+%h1(id="launching_config" style="margin-top:0")
+.section-grouping
+  %h2 3. Launching Instances with a Runtime Configuration
+
+  %p
+    This section requires the instance to be running (as opposed to stopped). Check this before proceeding.
+
+  %ol
+    %li
+    Click on the 
+    %bMonitor tab and then select
+    &rArr; <b>Tabled view</b>. This will display all your information in a format based more suitably for these instructions.
+    %li
+    Click on the pool you're currently operating within.
+    %li
+    Within that, click on the name of the deployment. You will now be in the deployment able to edit.
+    %li
+    Check that the instance is running, and click on the instance.
+    %li
+    This is where you are able to edit the properities and configuration of the deployable. Select the button, 'Config Parameters' next to the 'Properties' button.
+    %li
+    Within this, you have the ability to type the desired configuration values in its parameter fields.
+
+  %p
+    %center
+      %a{ :href => "Images/Runtime Images/config_button.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/config_button_thumb.png",
+              :title => "Configuration Button Image - click to view at full size in a new window",
+              :alt => "Configuration Button Image - click to view at full size in a new window" }
+      
+
+%br
+
+%a.button{ :href => "users.html", :title => "Users" }
+  Users
+  %img{:src => "/images/button-right.png", :alt => "→"}
