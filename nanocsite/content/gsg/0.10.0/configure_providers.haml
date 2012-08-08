@@ -64,13 +64,13 @@ title: Aeolus | Configure Providers
       %li
         An account name "Testing" should already exist.
 
-  %p
-    %left
-      %a{ :href => "Images/Configure Provider Images/testing_image.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/testing_image_thumb.png",
-              :title => "Testing Image - click to view at full size in a new window",
-              :alt => "Testing Image - click to view at full size in a new window"}
+      %p
+        %left
+          %a{ :href => "Images/Configure Provider Images/testing_image.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/testing_image_thumb.png",
+                  :title => "Testing Image - click to view at full size in a new window",
+                  :alt => "Testing Image - click to view at full size in a new window"}
 
   %p
     If the account doesn't exist, you can create it by following these steps:
@@ -78,7 +78,6 @@ title: Aeolus | Configure Providers
     %ol
       %li
         From the Accounts page, Click the "New Account" button.
-
       %li
         For
         %b Account name
@@ -132,62 +131,69 @@ title: Aeolus | Configure Providers
 
   %p Follow these steps to configure Amazon EC2 with Aeolus.
 
-  %ol
-    %li
-    In the
-    %b Administer tab
-    &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
+  %p  
+    %ol
+      %li
+      In the
+      %b Administer tab
+      &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
 
-  %p
-    %center
-      %a{ :href => "Images/Configure Provider Images/click_cloud_providers.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/click_cloud_providers_thumb.png",
-              :title => "Click the Cloud Providers button - click to view at full size in a new window",
-              :alt => "Click the Cloud Providers button - click to view at full size in a new window",}
+      %p
+        %center
+          %a{ :href => "Images/Configure Provider Images/click_cloud_providers.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/click_cloud_providers_thumb.png",
+                  :title => "Click the Cloud Providers button - click to view at full size in a new window",
+                  :alt => "Click the Cloud Providers button - click to view at full size in a new window",}
 
-    %p
-      Amazon EC2 was automatically populated by the
-      %em aeolus-configure
-      command we gave earlier.  It includes:
+      %p
+        Amazon EC2 was automatically populated by the
+        %em aeolus-configure
+        command we gave earlier.  It includes:
 
-    %ul
-      %li ec2-us-east-1
-      %li ec2-us-west-1
-      %li ec2-us-west-2
-      %li ec2-eu-west-1
-      %li ec2-ap-northeast-1
-      %li ec2-ap-southeast-1
+      %ul
+        %li 
+        ec2-us-east-1
+        %li 
+        ec2-us-west-1
+        %li 
+        ec2-us-west-2
+        %li 
+        ec2-eu-west-1
+        %li 
+        ec2-ap-northeast-1
+        %li 
+        ec2-ap-southeast-1
 
-  %ol
-    %li 
+    %ol      
+      %li 
       At the top of the Cloud Providers page, there is a drop down list listing available providers. You should see the above list of providers, and you can select whichever region you wish to use.
 
-    %li
+      %li
       With a provider selected, press the "Accounts" button, and then choose "New Account."
 
-    %li
-    Fill in the EC2 account details, with your Amazon AWS account info. The information you need from Amazon is on their AWS
-    %a{ :href => "https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key",
+      %li
+      Fill in the EC2 account details, with your Amazon AWS account info. The information you need from Amazon is on their AWS
+        %a{ :href => "https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key",
       :title => "Security Credentials"} Security &rArr; Security Credentials
     page.
 
-  %p
-    %center
-      %a{ :href => "Images/Configure Provider Images/fill_in_ec2_account_details.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/fill_in_ec2_account_details_thumb.png",
-              :title => "Fill in AWS account details - click to view at full size in a new window",
-              :alt => "Fill in AWS account details - click to view at full size in a new window"}
+      %p
+        %center
+          %a{ :href => "Images/Configure Provider Images/fill_in_ec2_account_details.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/fill_in_ec2_account_details_thumb.png",
+                  :title => "Fill in AWS account details - click to view at full size in a new window",
+                  :alt => "Fill in AWS account details - click to view at full size in a new window"}
 
-  %ol
-    %li
+    %ol
+      %li
       When you are done, click the "<b>Save</b> button".
 
-    %li 
+      %li 
       Verify the account details work
 
-    %li
+      %li
       After saving the account above, you can press the "Test Connection" button to test your credentials.
 
 
@@ -200,41 +206,42 @@ title: Aeolus | Configure Providers
     If you intend to build images for these setups, you must be running Aeolus on bare metal with hardware virtualization capabilities. Image building is not possible within a virtual machine.
 
 
-  %ol
-    %li
-    In the
-    %b Administer tab
-    &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
-    %li 
+  %p
+    %ol
+      %li
+      In the
+      %b Administer tab
+      &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
+      %li 
       The centre right hand side of the page is a drop down list listing available providers. As already shown in the EC2 configuration above. Instead of chosing a region for your provider, click, 'New Provider'.
-    %li
+      %li
       On the page displayed, input the name, url, provider type and the API provider.
       Ensure that the provider type is 'RHEV-M'
 
-    .note
-      %p
-        %b NOTE - The provider type 'RHEV-M' can be selected for both RHEV-M and oVirt managers.
-
-    %li 
-      Save this provider.
-
-    %li
-      You will return to the Connectivity page. Fill out the required sections. Save changes.
-
-    %li
-      With a provider selected, press the "Accounts" button, and then choose "New Account."
-    %li
-      Fill in the account details, with your oVirt or RHEV-M account info.
-
-    %li
-      Click save.
+  .note
     %p
-      %center
-        %a{ :href => "Images/Configure Provider Images/configure_ovirt.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/configure_ovirt_thumb.png",
-              :title => "Configurting oVirt/RHEV-M - click to view at full size in a new window",
-              :alt => "Configurting oVirt/RHEV-M - click to view at full size in a new window" }
+      %b NOTE - The provider type 'RHEV-M' can be selected for both RHEV-M and oVirt managers.
+
+      %li 
+        Save this provider.
+
+      %li
+        You will return to the Connectivity page. Fill out the required sections. Save changes.
+
+      %li
+        With a provider selected, press the "Accounts" button, and then choose "New Account."
+      %li
+        Fill in the account details, with your oVirt or RHEV-M account info.
+
+      %li
+        Click save.
+      %p
+        %center
+          %a{ :href => "Images/Configure Provider Images/configure_ovirt.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/configure_ovirt_thumb.png",
+                  :title => "Configurting oVirt/RHEV-M - click to view at full size in a new window",
+                  :alt => "Configurting oVirt/RHEV-M - click to view at full size in a new window" }
         
 
 
@@ -249,35 +256,35 @@ title: Aeolus | Configure Providers
 
 
   %p To create a cloud, follow these steps:
-  %ol
-    %li 
+    %ol
+      %li 
       Click on the 
       %b Administer tab
       &rArr; <b>Environments</b>. This displays a list of your pools.
-  %p
-    %center
-      %a{ :href => "Images/Configure Provider Images/create_cloud.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/create_cloud_thumb.png",
-              :title => "Testing Image - click to view at full size in a new window",
-              :alt => "Testing Image - click to view at full size in a new window" }
-  %ol
-    %li   
-      Click the New Pool Family button.
-    %li 
-      Specify a valid Pool Family Name.
-    %li 
-      Specify the Maximum Running Instances. Leave this field blank for unlimited instances.
-    %li 
-      Click the Save button to save your new pool. 
+      %p
+        %center
+          %a{ :href => "Images/Configure Provider Images/create_cloud.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/create_cloud_thumb.png",
+                  :title => "Testing Image - click to view at full size in a new window",
+                  :alt => "Testing Image - click to view at full size in a new window" }
 
-  %p
-    %center
-      %a{ :href => "Images/Configure Provider Images/new_pool.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/new_pool_thumb.png",
-              :title => "Testing Image - click to view at full size in a new window",
-              :alt => "Testing Image - click to view at full size in a new window" }
+      %li   
+        Click the New Pool Family button.
+      %li 
+        Specify a valid Pool Family Name.
+      %li 
+        Specify the Maximum Running Instances. Leave this field blank for unlimited instances.
+      %li 
+        Click the Save button to save your new pool. 
+
+      %p
+        %center
+          %a{ :href => "Images/Configure Provider Images/new_pool.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/new_pool_thumb.png",
+                  :title => "Testing Image - click to view at full size in a new window",
+                  :alt => "Testing Image - click to view at full size in a new window" }
 
 
 
