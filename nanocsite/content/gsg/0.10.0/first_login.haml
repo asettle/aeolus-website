@@ -30,9 +30,10 @@ title: Aeolus | First login
     After Aeolus has been initialized, with any firewall updates done, you
     are ready to use the web interface.
 
-  %p
-    Open the following address in your web browser (any modern one), using the
-    name of your Aeolus server instead of "<b>server_name</b>":
+  %ol
+    %li
+      Open the following address in your chosen web browser, using the
+      name of your Aeolus server instead of "<b>server_name</b>":
 
   %p
     %pre
@@ -75,8 +76,12 @@ title: Aeolus | First login
     password
 
   %p
-    We'll change that password in a few moments, after introducing you to
-    the major parts of the Aeolus interface.
+    This password will act as a default setting, instructions on how to edit this   can be found  
+    %b at
+    &rArr; <b><a href="users.html">Audrey</a></b>. 
+
+  %p 
+    This page will firstly introduce you to the main components of the Aeolus interface.
 
 %br
 %h1(id="welcome" style="margin-top:0") 
@@ -162,7 +167,9 @@ title: Aeolus | First login
           and
           %strong
             pretty view.
+        %p
           Pretty view is represented by the "eyeball" icon and is the default view. It represents a graphical overview of content.
+        %p
           Detail view is represented by the "table" or "grid" icon, and presents a more detailed view of content. In some cases,
           detail view will present some controls that are not present in pretty view. For now, we will stay in pretty view.
     %center
@@ -187,10 +194,16 @@ title: Aeolus | First login
 
     %dl
       %dt
-        %b User options menu
+        %b My Account Menu
       %dd
-        The user menu contains actions for the currently logged-in user, including the ability to edit your account
-        preferences and to log out.
+        The 'my account' menu contains actions for the currently logged-in user, including the ability to edit your account
+        preferences and to log out. 
+
+      .note
+        %p
+          %b NOTE - If you are an administrator, there is also an 'Administrator' button right next to the "My Accounts" button, which you can also use for the same purposes.
+        
+
     %center
       %a{ :href => "Images/First Login Page Images/welcome_screen_usermenu.png",
           :target => "_blank" }

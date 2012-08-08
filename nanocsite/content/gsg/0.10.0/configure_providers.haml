@@ -92,7 +92,6 @@ title: Aeolus | Configure Providers
         "<em>testpassword</em>".
 
 
-
 %br
 
 %h1(id="ec2" style="margin-top:0") Amazon EC2
@@ -133,12 +132,11 @@ title: Aeolus | Configure Providers
 
   %p Follow these steps to configure Amazon EC2 with Aeolus.
 
-  %p
+  %ol
+    %li
     In the
-    %em Administer
-    tab, click the
-    %b Cloud Providers
-    button.  This switches to a view showing the configured Cloud Providers.
+    %b Administer tab
+    &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
 
   %p
     %center
@@ -148,10 +146,10 @@ title: Aeolus | Configure Providers
               :title => "Click the Cloud Providers button - click to view at full size in a new window",
               :alt => "Click the Cloud Providers button - click to view at full size in a new window",}
 
-  %p
-    Amazon EC2 was automatically populated by the
-    %em aeolus-configure
-    command we gave earlier.  It includes:
+    %p
+      Amazon EC2 was automatically populated by the
+      %em aeolus-configure
+      command we gave earlier.  It includes:
 
     %ul
       %li ec2-us-east-1
@@ -161,12 +159,14 @@ title: Aeolus | Configure Providers
       %li ec2-ap-northeast-1
       %li ec2-ap-southeast-1
 
-  %p At the top of the Cloud Providers page, there is a drop down list listing available providers. You should see the
-  above list of providers, and you can select whichever region you wish to use.
+  %ol
+    %li 
+      At the top of the Cloud Providers page, there is a drop down list listing available providers. You should see the above list of providers, and you can select whichever region you wish to use.
 
-  %p With a provider selected, press the "Accounts" button, and then choose "New Account."
+    %li
+      With a provider selected, press the "Accounts" button, and then choose "New Account."
 
-  %p
+    %li
     Fill in the EC2 account details, with your Amazon AWS account info. The information you need from Amazon is on their AWS
     %a{ :href => "https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key",
       :title => "Security Credentials"} Security &rArr; Security Credentials
@@ -180,22 +180,64 @@ title: Aeolus | Configure Providers
               :title => "Fill in AWS account details - click to view at full size in a new window",
               :alt => "Fill in AWS account details - click to view at full size in a new window"}
 
-  %p When you are done, click the "<b>Save</b> button".
+  %ol
+    %li
+      When you are done, click the "<b>Save</b> button".
 
-.section-grouping
-  %ul(id="testacct") 
-    %li 1.1 Verify the account details work
+    %li 
+      Verify the account details work
 
-  %p After saving the account above, you can press the "Test Connection" button to test your credentials.
+    %li
+      After saving the account above, you can press the "Test Connection" button to test your credentials.
 
 
 %br
 %h1(id="RHEVM/Ovirt" style="margin-top:0") 
 .section-grouping
-  %h2(id="testacct") 2. Configure RHEVM/Ovirt Provider - DRAFTING
+  %h2(id="testacct") 2. Configure RHEVM/Ovirt Provider
 
   %p
     If you intend to build images for these setups, you must be running Aeolus on bare metal with hardware virtualization capabilities. Image building is not possible within a virtual machine.
+
+
+  %ol
+    %li
+    In the
+    %b Administer tab
+    &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
+    %li 
+      The centre right hand side of the page is a drop down list listing available providers. As already shown in the EC2 configuration above. Instead of chosing a region for your provider, click, 'New Provider'.
+    %li
+      On the page displayed, input the name, url, provider type and the API provider.
+      Ensure that the provider type is 'RHEV-M'
+
+    .note
+      %p
+        %b NOTE - The provider type 'RHEV-M' can be selected for both RHEV-M and oVirt managers.
+
+    %li 
+      Save this provider.
+
+    %li
+      You will return to the Connectivity page. Fill out the required sections. Save changes.
+
+    %li
+      With a provider selected, press the "Accounts" button, and then choose "New Account."
+    %li
+      Fill in the account details, with your oVirt or RHEV-M account info.
+
+    %li
+      Click save.
+    %p
+      %center
+        %a{ :href => "Images/Configure Provider Images/configure_ovirt.png",
+          :target => "_blank" }
+        %img.thumbnail{ :src => "Images/Thumbnails/configure_ovirt_thumb.png",
+              :title => "Configurting oVirt/RHEV-M - click to view at full size in a new window",
+              :alt => "Configurting oVirt/RHEV-M - click to view at full size in a new window" }
+        
+
+
 
 %br
 
