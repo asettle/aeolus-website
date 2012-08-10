@@ -4,7 +4,13 @@ title: Aeolus | Users
 %h1 Users
 
 %p
-This section on users will firstly details how to edit and delete users, secondly it will determine how to use the new user group function.
+This section on users will firstly details how to edit and delete users.
+
+%P
+This page is designed to introduce the user functionality to the user, 
+and consequently enable the user 
+to have a greater understanding of their position in the product.
+
 
 = render 'gsg_navigation', :selected_page => 'users.html'
 
@@ -14,11 +20,6 @@ This section on users will firstly details how to edit and delete users, secondl
   %li
     %a(href="#show_delete" title="How to Edit and Delete Users")
       How to Edit and Delete Users
-
-  %li
-    %a(href="#user_groups" title="User Groups")
-      User Groups
-
 
 %br
 
@@ -37,54 +38,53 @@ This section on users will firstly details how to edit and delete users, secondl
     %em Administer
     sections' "<b>Users and Groups</b>" area.
 
-  %p
-    %center
-      %a{ :href => "Images/Users Images/edit_users.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/edit_users_thumb.png",
-              :title => "UI Structure - click to view at full size in a new window",
-              :alt => "UI Structure - click to view at full size in a new window" }
+    %p
+      %center
+        %a{ :href => "Images/Users Images/edit_users.png",
+            :target => "_blank" }
+          %img.thumbnail{ :src => "Images/Thumbnails/edit_users_thumb.png",
+                :title => "UI Structure - click to view at full size in a new window",
+                :alt => "UI Structure - click to view at full size in a new window" } 
 
     %li
       Click the "<b>Edit</b>" button on the user's business card.
 
-  %p
-    %center
-      %a{ :href => "Images/Users Images/my_account.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/my_account_thumb.png",
-              :title => "User information view - click to view at full size in a new window",
-              :alt => "User information view - click to view at full size in a new window" }
+      %p
+        %center
+          %a{ :href => "Images/Users Images/my_account.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/my_account_thumb.png",
+                  :title => "User information view - click to view at full size in a new window",
+                  :alt => "User information view - click to view at full size in a new window" }
 
     %li
       This loads the "<b>Edit User</b>" view:
 
-  %p
-    %center
-      %a{ :href => "Images/User Images/edit_details_view.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/edit_details_thumb.png",
-              :title => "Edit user view - click to view at full size in a new window",
-              :alt => "Edit user view - click to view at full size in a new window" }
+      %p
+        %center
+          %a{ :href => "Images/User Images/edit_details_view.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/edit_details_thumb.png",
+                  :title => "Edit user view - click to view at full size in a new window",
+                  :alt => "Edit user view - click to view at full size in a new window" }
 
     %li
       Change the password now, using the "<b>Change password</b>" and
       "<b>Confirm password</b>" fields.
       %br
-      %br
       If you want, also change the First name, Last name, and E-mail fields.
 
     %li
-      Click the "<b>Save User</b>" button when you're done.  A message
-      confirming the change should appear:
+    Click the "<b>Save User</b>" button when you're done.  A message
+    confirming the change should appear:
 
-  %p
-    %center
-      %a{ :href => "Images/User Images/updated_details.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/updated_details_thumb.png",
-              :title => "Message indicating user update was successful - click to view at full size in a new window",
-              :alt => "Message indicating user update was successful - click to view at full size in a new window" }
+    %p
+      %center
+        %a{ :href => "Images/User Images/updated_details.png",
+            :target => "_blank" }
+          %img.thumbnail{ :src => "Images/Thumbnails/updated_details_thumb.png",
+                :title => "Message indicating user update was successful - click to view at full size in a new window",
+                :alt => "Message indicating user update was successful - click to view at full size in a new window" }
 
   %p
     This is how you delete users.
@@ -106,79 +106,6 @@ This section on users will firstly details how to edit and delete users, secondl
               :title => "Message indicating user update was successful - click to view at full size in a new window",
               :alt => "Message indicating user update was successful - click to view at full size in a new window" }
 
-
-%br
-
-%h1(id="user_groups" style="margin-top:0")
-.section-grouping
-  %h2 2. User Groups
-
-  %p
-    User groups are a new function to Aeolus and allow administrators to compile several users. To create the initial user group, follow these steps:
-
-  %ol
-    %li
-      Click the 
-      %b Administer tab
-      &rArr; <b>Users</b>.
-    %li
-      Click the 'User Groups' tab.
-    %li 
-      Click 'Add User Group'.
-    %li
-      Specify the type, name and description.
-
-  %p
-    %center
-      %a{ :href => "Images/User Images/new_user_groups.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/new_user_groups_thumb.png",
-              :title => "New User Group - click to view at full size in a new window",
-              :alt => "New User Group - click to view at full size in a new window" }
-
-    %li
-      Save the user group. You will return to the User Groups page. 
-
-  %p
-    If you wish to continue, here are some further steps indicating how to Add/remove members from your new user group.
-
-  %ol
-    %li
-      From the menu, select your new group you wish to add members to.
-    %li
-      Select member, and click 'Add Member'.
-
-  %p
-    %center
-      %a{ :href => "Images/User Images/add_members.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/add_members_thumb.png",
-              :title => "Add member - click to view at full size in a new window",
-              :alt => "Add member - click to view at full size in a new window" }
-
-  %p
-    If you wish to remove this member, this is just as simple.
-  %ol
-    %li
-      Go to 
-      %b Administer tab
-      &rArr; <b>Users</b> 
-      %b and then 
-      &rArr; <b>Users</b> user groups.
-
-    %li
-      Select the group you wish to remove said member from.
-    %li 
-      From the selection, select the mmeber and click 'remove'.
-
-  %p
-    %center
-      %a{ :href => "Images/User Images/remove_members.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/remove_members_thumb.png",
-              :title => "Remove Member - click to view at full size in a new window",
-              :alt => "Remove Member - click to view at full size in a new window" }
-  
 
 %br
 

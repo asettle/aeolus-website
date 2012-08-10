@@ -4,7 +4,7 @@ title: Aeolus | Cleaning up
 %h1 Cleaning up
 
 %p
-  Useful things to know when using development versions of Aeolus.
+  This page illustrates the simple processes for the unconfiguration of aeolus, and removing any AMI's. 
 
 = render 'gsg_navigation', :selected_page => 'cleaning_up.html'
 
@@ -28,10 +28,11 @@ title: Aeolus | Cleaning up
 .section-grouping
   %h2 1. Unconfiguring Aeolus
 
-  %p
-    To remove all of the configuration data and database entries from an Aeolus server, run the
-    %b aeolus-cleanup
-    command as a super-user:
+  %ol
+    %li
+      To remove all of the configuration data and database entries from an Aeolus server, run the
+      %b aeolus-cleanup
+      command as a super-user:
 
   %p
     %pre
@@ -45,14 +46,14 @@ title: Aeolus | Cleaning up
 
   %p
     It only acts on the local Aeolus server, and does not communicate with
-    any configured Cloud providers or stop any currently-running instances.  You need to manually
-    remove any information in configured Cloud providers.
+    any configured Cloud providers or stop any currently-running instances.  You need to manually remove any information in configured Cloud providers.
 
-  %p
-    %b WARNING:
-    This command drops the PostgreSQL database, and permanently deletes
-    Conductor related data.  Don't use it on a server whose data you want to
-    keep.
+  .warning
+    %p
+      %b WARNING:
+      This command drops the PostgreSQL database, and permanently deletes
+      Conductor related data.  Don't use it on a server whose data you want to
+      keep.
 
   %p
     If you are using Amazon EBS, follow the next steps to complete the cleanup.
@@ -65,7 +66,7 @@ title: Aeolus | Cleaning up
   %p
     Aeolus does not yet de-register AMIs, nor delete their corresponding
     storage from EBS.  For now, you will need to use the AWS Management
-    Console to de-register AMIs and delete S3 storage yourself.
+    Console to de-register AMIs and delete S3 storage manually.
 
   %br
   %h3(id="deregistering" style="margin-top:0") 
@@ -84,15 +85,14 @@ title: Aeolus | Cleaning up
         %b De-register
         then confirm this is what you want to do.
 
-  %p
-    &nbsp;&nbsp;&nbsp;
-    %img{ :src => "Images/Cleaning Up Images/ec2_deregister_ami.png",
-          :title => "Deregister EC2 AMIs",
-          :alt => "Deregister EC2 AMIs" }
+        %p
+          &nbsp;&nbsp;&nbsp;
+          %img{ :src => "Images/Cleaning Up Images/ec2_deregister_ami.png",
+                :title => "Deregister EC2 AMIs",
+                :alt => "Deregister EC2 AMIs" }
 
-  %p
-    This removes the selected AMIs from your AMI list.  Their storage needs
-    to be removed from EBS next.
+      %li
+        This removes the selected AMIs from your AMI list.  Their storage needs to be removed from EBS next.
 
   %br
   %h3(id="removing" style="margin-top:0") 
@@ -113,40 +113,12 @@ title: Aeolus | Cleaning up
         For each of these buckets, delete its contents then delete the bucket
         itself.
 
+INSERT IMAGE HERE
+
+
 %br
+%a.button{ :href => "next_steps.html", :title => "Next Steps" }
+  Next Steps
+  %img{:src => "/images/button-right.png", :alt => "→"}
 
-%h1(id="next" style="margin-top:0")
-.section-grouping
-  %h2 Next Steps
 
-  %p
-    Aeolus has a
-    %b much richer
-    set of capabilities than what has been shown in this <em>Getting Started
-    Guide</em>.
-
-  %p
-    To find out more, you can:
-
-    %ul
-      %li Experiment using the Aeolus web interface configured earlier.
-
-      %li
-        Add yourself to the
-        <a href= "/contact.html#release"
-        title="Aeolus announcement mailing list">Aeolus announcement mailing list</a>,
-        to receive notification of new Aeolus releases.
-
-      %li
-        Look into the individual Aeolus component projects, starting with the
-        <a href="/projects.html" title="Aeolus Project Pages">Aeolus Project Pages</a>.
-
-      %li
-        Join us on the
-        <a href="/contact.html#developer"
-        title="Aeolus developer mailing lists">Aeolus developer mailing lists</a>,
-        to contribute in Aeolus development.
-
-      -#%li
-        Read through the official Red Hat CloudForms documentation on
-        <a href="https://docs.redhat.com" title="Red Hat Documentation">http://docs.redhat.com</a>.

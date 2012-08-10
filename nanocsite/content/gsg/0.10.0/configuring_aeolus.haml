@@ -13,23 +13,19 @@ title: Aeolus | Configuration Documentation
 
 = render 'gsg_navigation', :selected_page => 'configuring_aeolus.html'
 
-%br
 
-.section-grouping
-  %h2 Initial configuration
+%p
+  Most configuration for Aeolus is done through its web interface.
 
-  %p
-    Most configuration for Aeolus is done through its web interface.
-
-  %p
-    To turn on this web interface, we take a few simple steps:
+%p
+  To turn on this web interface, we take a few simple steps:
 
   %ul
     %li
       %a{ :href => "#aeolus-configure" } Run aeolus-configure
 
     %li
-      <a href="#update-firewall">Update the firewall</a> (if it's on)
+      <a href="#update-firewall">Update the firewall</a>
 
 %br
 
@@ -70,6 +66,9 @@ title: Aeolus | Configuration Documentation
   %h3(id="update-firewall") 2. Update the firewall
 
   %p
+    This is a step by step instruction of updating the firewall to configure Aeolus. This is manually required and unless your computer ports are already set up for a secure connection; Aeolus will not function on other ports so this step is imperative. 
+
+  %p
     Because Aeolus uses an encrypted web interface, the server running it
     must accept connections on TCP port 443.
 
@@ -90,7 +89,7 @@ title: Aeolus | Configuration Documentation
           /etc/sysconfig/iptables
           /etc/sysconfig/ip6tables
 
-  %ul
+
     %li
       The correct place is in the
       %b OUTPUT
@@ -123,7 +122,8 @@ title: Aeolus | Configuration Documentation
       %em ip6tables
       file as well.
 
-    %p The firewall rules then need to be reloaded:
+    %li 
+      The firewall rules then need to be reloaded:
   
     %p
       %pre

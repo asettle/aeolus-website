@@ -5,6 +5,16 @@ title: Aeolus | Configure the Aeolus Command Line Interface tool
 
 = render 'gsg_navigation', :selected_page => 'configure_cli.html'
 
+%p
+  This page will detail both how to update Aeolus Command Line Interface (CLI) Configuration, how to build and push the image with command line and simple command line syntax.
+
+%p
+  This is designed for the individual who prefers to use this method of configuration as opposed to a user interface (UI). 
+
+.note
+  %p
+    %b NOTE - If you have already built and pushed your images on the UI, then you are able to skip this page and continue onto 'Starting an Instance of the Image'.
+
 
 %ul
   %li
@@ -14,10 +24,6 @@ title: Aeolus | Configure the Aeolus Command Line Interface tool
   %li
     %a(href="#building_cli" title="Building an Image with Aeolus Command Line")
       Building an Image with Aeolus Command Line
-
-  %li
-    %a(href="#syntax" title="Command Line Syntax")
-      Command Line Syntax
 
 %br
 
@@ -52,11 +58,13 @@ title: Aeolus | Configure the Aeolus Command Line Interface tool
   %h2 2. Building an Image with Aeolus Command Line
 
   %p
-    Now use the aeolus-image command-line tool to build the image described in the XML.
+    %ol
+      %li
+        Continuing on from 'Creating the Template' on the previous page, use the aeolus-image command-line tool to build the image described in the XML.
 
-    %pre
-      :preserve
-        $ aeolus-image build --target ec2,mock --template template.xml --environment default
+      %pre
+        :preserve
+          $ aeolus-image build --target ec2,mock --template template.xml --environment default
 
         Target Image                             Target     Status        Image                                    Build
         ------------------------------------     ------     ---------     ------------------------------------     ------------------------------------
@@ -69,68 +77,68 @@ title: Aeolus | Configure the Aeolus Command Line Interface tool
         Status: COMPLETED
         Percent Complete: 100
 
-  .note
-    %p
-      %b NOTE -
-      The Image and Target Image values are important.
-      %br
-      %br
-      We use the Target Image value in the next step below, and the Image one
-      on the next page.
 
-  %p
-    Environments can be used to group deployments together. Out of the box,
-    aeolus-configure sets up a "default" environment that you may use.
+      .note
+        %p
+          %b NOTE -
+          The Image and Target Image values are important.
+          %br
+          We use the Target Image value in the next step below, and the Image one
+          on the next page.
 
-  %p
-    When building for EC2, this occurs in the form of a "snapshot build" that
-    occurs in the cloud using your EC2 credentials. For all other providers, Image
-    Factory will build an image locally inside of a virtual machine, so hardware
-    virtualization support is required.
+      %p
+        Environments can be used to group deployments together. Out of the box,
+        aeolus-configure sets up a "default" environment that you may use.
 
-  -# Needs to be verified/updated for next releases
-  -#%p
-  -#  Note that it is possible to build for more than one target by separating them with commas, e.g., with --target ec2,mock.
+      %p
+        When building for EC2, this occurs in the form of a "snapshot build" that
+        occurs in the cloud using your EC2 credentials. For all other providers, Image
+        Factory will build an image locally inside of a virtual machine, so hardware
+        virtualization support is required.
 
-  %p
-    Once an image is built, we push it to a
-    %b Cloud Provider
-    using the account configured earlier.
+      -# Needs to be verified/updated for next releases
+      -#%p
+      -#  Note that it is possible to build for more than one target by separating them with commas, e.g., with --target ec2,mock.
 
-  %p
-    aeolus-image just needs the Provider Account name
-    (ec2_east) and the Target Image UUID given by the last command
-    (2814a4e5-67a1-4dc3-b8be-8977bca61e8b).  To push to the mock provider account, simply use "mock" as the account name.
+      %li
+        Once an image is built, we push it to a
+        %b Cloud Provider
+        using the account configured earlier.
 
-    %pre
-      :preserve
-        $ aeolus-image push -A ec2_east -t <span style="color: lightblue">2814a4e5-67a1-4dc3-b8be-8977bca61e8b</span>
-        Target Image: 2814a4e5-67a1-4dc3-b8be-8977bca61e8b
-        Provider Image: 19d97c85-3db3-41fa-bf92-63fb6fed738a   Status: New
 
-  %p
-    Building and pushing can take some time, except for the mock provider. You can watch its progress by
-    tailing the Image Factory and Image Warehouse logs:
+      %li
+        aeolus-image just needs the Provider Account name
+        (ec2_east) and the Target Image UUID given by the last command
+        (2814a4e5-67a1-4dc3-b8be-8977bca61e8b).  To push to the mock provider account, simply use "mock" as the account name.
 
-    -#%pre
-    -#  :preserve
-    -#    $ tail -20f /var/log/imagefactory.log
-    -#    [verbose progress information appears here]
+      %pre
+        :preserve
+          $ aeolus-image push -A ec2_east -t <span style="color: lightblue">2814a4e5-67a1-4dc3-b8be-8977bca61e8b</span>
+          Target Image: 2814a4e5-67a1-4dc3-b8be-8977bca61e8b
+          Provider Image: 19d97c85-3db3-41fa-bf92-63fb6fed738a   Status: New
 
-    -#To monitor the push process, tail the Image Factory and Image Warehouse logs:
-    %pre
-      :preserve
-        $ tail -20f /var/log/imagefactory.log
-        [verbose progress information appears here]
+      %li
+        Building and pushing can take some time, except for the mock provider. You can watch its progress by
+        tailing the Image Factory and Image Warehouse logs:
 
-    %pre
-      :preserve
-        $ tail -20f /var/log/iwhd.log
-        [verbose progress information appears here]
+        -#%pre
+        -#  :preserve
+        -#    $ tail -20f /var/log/imagefactory.log
+        -#    [verbose progress information appears here]
 
-  %p
-    You will know it has finished when the output in the log file ceases after
-    displaying an entry like this:
+        -#To monitor the push process, tail the Image Factory and Image Warehouse logs:
+        %pre
+          :preserve
+            $ tail -20f /var/log/imagefactory.log
+            [verbose progress information appears here]
+
+        %pre
+          :preserve
+            $ tail -20f /var/log/iwhd.log
+            [verbose progress information appears here]
+
+      %li
+        You will know it has finished when the output in the log file ceases after displaying an entry like this:
 
   %p
     %pre
@@ -138,33 +146,10 @@ title: Aeolus | Configure the Aeolus Command Line Interface tool
         2011-11-24 10:08:49,375 DEBUG imgfac.ImageWarehouse.ImageWarehouse pid(3698) Message: Setting metadata ({'latest_unpushed': None})
         for http://localhost:9090/images/609a6eee-5ec5-4b13-8486-7491d091f8dc
 
-%h1(id="syntax" style="margin-top:0") 
-.section-grouping
-  %h2 3. Command Line Syntax
-
-  %p 
-    The following list outlines the action types for Aeolus.
-    %ol
-      %li
-        image - Actions related to image builds, pushes and imports.
-
-  %p 
-    The following list outlines the commands for aeolus image.
-    %ol
-      %li 
-        list -  List resources such as images, image targets, cloud resource providers, resource provider accounts 
-      %li
-        build - Build an image from a TDL file
-      %li
-        push - Push a built image to a cloud provider
-      %li
-        import - Import an image from a cloud provider
-      %li
-        delete - Delete a built image
 
 
 %br
 
-%a.button{ :href => "start_image.html", :title => "Start an Instance of an Image" }
-  Start an Instance of an Image
+%a.button{ :href => "command_syntax.html", :title => "Command Line Syntax" }
+  Command Line Syntax
   %img{:src => "/images/button-right.png", :alt => "→"}

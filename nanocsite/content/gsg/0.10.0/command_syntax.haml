@@ -1,0 +1,159 @@
+---
+title: Aeolus | Command Line Syntax
+---
+%h1 Command Line Syntax
+
+= render 'gsg_navigation', :selected_page => 'command_syntax.html'
+
+%p
+  This page details syntax of the Aeolus command line.
+
+%ul
+  %li
+    %a(href="#syntax" title="Command Line Syntax")
+      Command Line Syntax
+
+  %li
+    %a(href="#options" title="Command Line Options")
+      Command Line Options
+
+%br
+
+%h1(id="syntax" style="margin-top:0")
+.section-grouping
+  %h2 1. Command Line Syntax
+
+  %p 
+    The following list outlines the action types for Aeolus.
+    %ol
+      %li
+        image - Actions related to image builds, pushes and imports.
+
+  %p 
+    The following list outlines the commands for aeolus image.
+    %ol
+      %li 
+        list -  List resources such as images, image targets, cloud resource providers, resource provider accounts 
+      %br
+      %li
+        build - Build an image from a TDL file
+      %br
+      %li
+        push - Push a built image to a cloud provider
+      %br
+      %li
+        import - Import an image from a cloud provider
+      %br
+      %li
+        delete - Delete a built image
+
+%br
+
+%h1(id="options" style="margin-top:0")
+.section-grouping
+  %h2 2. Command Line Options
+
+  %p 
+    The following options can be used in conjunction with the list command. These are all the options that can be used with the list function. 
+
+  %p
+    LIST OPTIONS:
+    %ol
+      %li
+        To retrieve a list of all images: --images, -i.  
+      %br
+      %li
+        This limits the image list to a certain environment: --environment, -E. 
+      %br
+      %li
+        This retrives a list of all builds for an image. This requires the UUID of an image: --builds, -b. 
+      %br        
+      %li
+        This retrieves a list of all target images for a build. Requires the UUID of a build: --targetimages BUILDID, -t. 
+      %br
+      %li
+        This retrieves a list of all provider images for a target image. Requires the UUID of a target image: --providerimages TARGETIMAGE, -P. 
+      %br
+      %li
+        This retrieves a list of all cloud resource provider types: --targets, -g. 
+      %br
+      %li 
+        This retrives a list of cloud resource provider connections: --proviers, -p. 
+      %br
+      %li 
+        This retrives a list of all cloud resource provider accounts: --accounts, -a. 
+      %br
+      %li 
+        This retrives a list of all pools: --environments, -c. 
+
+  %p
+    BUILD OPTIONS:
+    %ol 
+      %li
+        Build an image from a TDL file. Requires a local location of a TDL file: -e, --template FILE.
+      %br
+      %li
+        Disable TDL validation of template file: -z, --no-validation
+      %br
+      %li
+        Disable TDL validation of template file: -T, --target TARGET1,TARGET2
+      %br
+      %li
+        Build for specific cloud: -E, --environment ENVIRONMENT     
+
+
+  %p
+    PUSH OPTIONS:
+    %ol
+      %li
+        Use base image for the push. Requires the UUID of an image: -I, --image IMAGEID
+      %br
+      %li
+        Use build for the push. Requires the UUID of a build: -B, --build BUILDID
+      %br
+      %li
+        Use target image from a build. Requires the UUID of a target image: -t, --targetimages TARGETID
+      %br
+      %li
+        Name of cloud resource provider accounts to use for pushing target images. Ensure a target image exists for each account: -A, --account NAME1,NAME2
+
+
+  %p
+    IMPORT OPTIONS:
+    %ol
+      %li
+        The UUID for a given object. Examples include AMI IDs from your EC2 provider or template UUIDs from your Red Hat Enterprise Virtualization environment:-d, --id ID
+      %br
+      %li
+        The XML description for an object: -r, --description DESCRIPTION
+      %br
+      %li
+        Names of the cloud resource provider accounts to use for imports:-A, --account NAME1,NAME2
+      %br
+      %li
+        Name of the clouds to use for imports:-E, --environment ENVIRONMENT
+
+  %p
+    DELETE OPTIONS:
+    %ol
+      %li
+        Delete an image and all associated builds:-I, --image IMAGEID
+      %br
+      %li
+        Delete a single build and all associated target images:-B, --build BUILDID
+      %br
+      %li
+        Delete a single target image from a build and all associated cloud resource provider images:-m, --targetimage TARGETID
+      %br
+      %li
+        Delete a single image on a cloud resource provider:-D, --providerimage PROVIDERIMAGEID
+
+     
+       
+
+
+%br
+
+%a.button{ :href => "start_image.html", :title => "Start an Instance of an Image" }
+  Start an Instance of an Image
+  %img{:src => "/images/button-right.png", :alt => "→"}
