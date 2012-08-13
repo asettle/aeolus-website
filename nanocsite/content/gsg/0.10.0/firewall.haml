@@ -1,0 +1,99 @@
+---
+title: Aeolus | Firewalls
+---
+%h1 Firewall Configuration
+
+%p Firewall configuration can also be compiled via a graphic interface.This is a step by step instruction of updating the firewall to configure Aeolus. Configuring your firewall to open up port 443 is required for the usage of Aeolus, it does not matter how you chose to do so.
+
+= render 'gsg_navigation', :selected_page => 'firewall.html'
+
+
+%br
+
+.section-grouping
+  %h3(id="firewall") 1. Firewall Configuration
+
+  %p
+    For this section you will need to have system-config-firewall-tui installed on your computer. If you do not, use this command line as root user:
+  %pre
+    :preserve
+      yum install system-config-firewall-tui
+
+  %p
+    Once the package is installed, you can run the follow instructions from the command line (again as root).
+
+    %ol
+      %li
+        Open terminal. Type in the line.
+      %pre
+        :preserve
+          system-config-firewall-tui
+
+      %li
+        This page will appear:
+
+      %p
+        %center
+          %a{ :href => "Images/Firewall Images/config_page.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/config_page_thumb.png",
+                  :title => "Configuration Page - click to view at full size in a new window",
+                  :alt => "Configuration Page - click to view at full size in a new window" }
+
+      %li
+        Use the tab key to select customize. 
+      %br
+      %li
+        The next page will ask you to define which pages are trusted. For this exercise you want to scroll down until you see 'Secure WWW (HTTPS). 
+      %br
+      %li 
+        Press enter to select and use the tab keys to move forward.
+      %br
+      %li
+        The next step will require you to specify which ports you want opened. In this instance, we want port 443: tcp and 443: udp.
+      %br
+      %li
+        Use the tabs keys to select 'add' and enter 443 as the port/port range, and tcp and udp as the protocol. You will have to do these in separate instances.
+
+      %p
+        %center
+          %a{ :href => "Images/Firewall Images/config_tcp.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/config_tcp_thumb.png",
+                  :title => "TCP Configuration - click to view at full size in a new window",
+                  :alt => "TCP Configuration - click to view at full size in a new window" }
+
+      %br
+      %li
+        Once you have allocated the additional ports, it will appear in the scroll section of the original page. You can see here you have added 443:tcp and 443:udp.
+      %br
+      %li
+        Click forward.
+      %br
+      %li
+        The next few pages will ask you to configure other sections of the firewall. This is unnecessary for this process. Continously click 'forward' until you reach the end page.
+      %br
+
+      %li
+        Save any content it requires you to save.
+      %br
+      %li
+        Click close.
+      %p
+        %center
+          %a{ :href => "Images/Firewall Images/end_config.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/end_config_thumb.png",
+                  :title => "End Configuration Page - click to view at full size in a new window",
+                  :alt => "End Configuration Page - click to view at full size in a new window" }
+
+
+%a.button{ :href => "first_login.html", :title => "First Login" }
+  First Login
+  %img{:src => "/images/button-right.png", :alt => "→"}
+
+
+
+          
+        
+            
