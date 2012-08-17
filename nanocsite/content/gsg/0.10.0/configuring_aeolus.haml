@@ -8,7 +8,7 @@ title: Aeolus | Configuration Documentation
   <b>Getting Started Guide</b>.
 
 %p
-  They take you through initial configuration, connecting with Amazon EC2 or the mock provider,
+  They take you through initial configuration, connecting with Amazon EC2, oVirt and the mock provider,
   then doing very simple instance management with it.
 
 = render 'gsg_navigation', :selected_page => 'configuring_aeolus.html'
@@ -22,7 +22,7 @@ title: Aeolus | Configuration Documentation
 
   %ul
     %li
-      %a{ :href => "#aeolus-configure" } Run aeolus-configure
+      %a{ :href => "#aeolus-configure" } Run Aeolus-Configure
 
     %li
       <a href="#update-firewall">Update the firewall</a>
@@ -30,16 +30,14 @@ title: Aeolus | Configuration Documentation
 %br
 
 .section-grouping
-  %h3(id="aeolus-configure") 1. Run aeolus-configure
+  %h3(id="aeolus-configure") 1. Run Aeolus-Configure
 
   %p
-    %ol
-      %li    
-        The very first step is to run the
+    The very first step is to run the
     %em aeolus-configure
     command
     %b
-      %u with
+    %u with
     super-user privileges (via sudo).
   %p
     %pre
@@ -49,9 +47,20 @@ title: Aeolus | Configuration Documentation
   %p
     This performs an initial configuration of Aeolus with default settings, along with pre-configured provider information for Amazon EC2 and the mock provider. 
   %p
-    It is fully automatic, and doesn't require any input. As part of this automatic configuration each Aeolus component is initialized, a PostgreSQL database is created, and the web interface is activated. 
+    It is fully automatic, and doesn't require any input. As part of this automatic configuration each Aeolus component is initialized, a PostgreSQL database is created, and the web interface is activated.
+  %br
   %p
-    It will take a while (can be several minutes), generating a fair amount of text.
+    If you are configuring a RHEVM or oVirt provider as well, the first step again is to the run the aeolus-configure command with super-user privileges (via sudo).
+  %p
+    %pre
+      :preserve
+        $ aeolus-configure -p rhevm
+
+  %p
+    Puppet (configuration tool) will then add the provider, ensure /etc/imagefactory/rhevm.json and /etc/iwhd/conf.js are updated, and mount the NFS export.
+
+  %p
+    Both of these processes will take a while (can be several minutes), generating a fair amount of text.
 
   .note
     %p
@@ -63,7 +72,7 @@ title: Aeolus | Configuration Documentation
 %br
 
 .section-grouping
-  %h3(id="update-firewall") 2. Update the firewall
+  %h3(id="update-firewall") 2. Update the Firewall
 
   %p
     This is a step by step instruction of updating the firewall to configure Aeolus. This is manually required and unless your computer ports are already set up for a secure connection; Aeolus will not function on other ports so this step is imperative. 
@@ -156,6 +165,6 @@ title: Aeolus | Configuration Documentation
 
 %br
 
-%a.button{ :href => "first_login.html", :title => "First Login" }
+%a.button{ :href => "firewall.html", :title => "Configuring Firewalls" }
   First Login
   %img{:src => "/images/button-right.png", :alt => "→"}

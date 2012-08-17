@@ -12,8 +12,8 @@ title: Aeolus | Runtime Configuration
 
 %ul
   %li
-    %a(href="#adding_audrey" title="Adding Audrey to an Instance of the Image")
-      Adding Audrey to an Instance of the Image
+    %a(href="#adding_audrey" title="Adding Audrey Agent to an Instance")
+      Adding Audrey Agent to an Instance
 
   %li
     %a(href="#adding_config" title="Adding Runtime Configuration to a Deployable")
@@ -28,7 +28,7 @@ title: Aeolus | Runtime Configuration
 
 %h1(id="adding_audrey" style="margin-top:0")
 .section-grouping
-  %h2 1. Adding Audrey to an Instance of the Image
+  %h2 1. Adding Audrey Agent to an Instance
 
   %p
     The following instructions add Audrey Agent to the template, which when built and pushed, becomes the image.
@@ -38,15 +38,16 @@ title: Aeolus | Runtime Configuration
     When uploading the TDL template file, make sure you click the option to 'edit' your file before you build your iamge.
     %li
     Add this line:
-
-  %p
-    %center
-      %a{ :href => "Images/Runtime Images/template_audrey.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Runtime Images/template_audrey.png",
-              :title => "Template Image - click to view at full size in a new window",
-              :alt => "Template Image - click to view at full size in a new window" }
-
+    %p
+      %pre
+        :preserve
+          template
+            ...
+            packages
+              package name='aeolus-audrey-agent'
+            packages
+            ...
+          template
 
 
 %h1(id="adding_config" style="margin-top:0")

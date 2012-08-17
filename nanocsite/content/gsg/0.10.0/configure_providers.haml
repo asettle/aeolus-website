@@ -8,8 +8,8 @@ title: Aeolus | Configure Providers
   Cloud Provider.  It is useful for demonstration and testing purposes.
 
 %p
-  This section will configure for EC2 and RHEVM/Ovirt.  This requires an existing Amazon
-  AWS account.  You can skip this part if you want.
+  This section will configure EC2, this will require an existing Amazon
+  AWS account. This page will also go through the steps to configure RHEVM/oVirt which will require both RHEVM and oVirt to be set up on a server. 
 
 %p
   We will also configure Audrey Configuration and finally run through the steps of creating a cloud.
@@ -30,8 +30,8 @@ title: Aeolus | Configure Providers
         Configure RHEVM/Ovirt Provider
 
     %li
-      %a(href="#cloud" title="Creating A Cloud")
-        Creating A Cloud
+      %a(href="#pool" title="Creating a Pool")
+        Creating a Pool
 
 = render 'gsg_navigation', :selected_page => 'configure_providers.html'
 
@@ -40,7 +40,7 @@ title: Aeolus | Configure Providers
 %h1(id="mock" style="margin-top:0") Test Provider
 
 .section-grouping
-  %h2 Confirm the Test Provider account exists
+  %h2 Confirm the Test Provider Account Exists
 
   %p
     The test provider is enabled so you can follow this guide without incurring charges from another provider.
@@ -193,6 +193,55 @@ title: Aeolus | Configure Providers
     %li
       After saving the account above, you can press the "Test Connection" button to test your credentials.
 
+    %br
+
+
+    %h2 1.1 Authentication Details table
+
+    %p
+      This table outlines the required authentication details for Amazon EC2. 
+
+    %table
+      %tr
+        %th 
+          %h4 Authentication Field
+        %th   
+          %h4 Description
+          %tr
+          %td
+            Access key 
+          %td
+            A 20-character Access Key ID created in your Amazon Web Services Account under Security Credentials. 
+          %tr
+          %tr
+          %tr
+          %td
+            Secret access key
+          %td
+            Secret Access Key associated with the Access Key ID. This Secret Access Key is found in your Amazon Web Services Account under Security Credentials.
+          %tr
+          %tr
+          %tr
+          %td
+            Account number 
+          %td
+            Your 12-digit Amazon Web Services account ID number in your Amazon Web Services Account under Security Credentials. 
+          %tr
+          %tr
+          %tr
+          %td
+            Key 
+          %td
+            PEM-encoded private key upload. Obtain this private from your Amazon Web Services Account under Security Credentials. 
+          %tr
+          %tr
+          %tr
+          %td
+            Certificate
+          %td
+            PEM-encoded certificate file upload. Obtain this certificate from your Amazon Web Services Account under Security Credentials. 
+
+            
 %br
 
 
@@ -242,11 +291,11 @@ title: Aeolus | Configure Providers
 
 %br
 
-%h1(id="cloud" style="margin-top:0") Pools
+%h1(id="cloud" style="margin-top:0") 
 
 .section-grouping
 
-  %h2(id="cloud") 3. Configuring Pools
+  %h2(id="pool") 3. Creating a Pool
 
   %p
     A cloud, put simply, is a 'storage capacity as a service'. It entrusts services with a users data, software and computation over a network.
@@ -255,11 +304,9 @@ title: Aeolus | Configure Providers
     To create a cloud, follow these steps:
   
   %ol
-    %li 
-      Click on the 
-      %b Administer tab
-      &rArr; <b>Environments</b>. This displays a list of your pools.
-      
+    %li   
+      Click the New Pool Family button.
+
       %p
         %center
           %a{ :href => "Images/Configure Provider Images/create_cloud.png",
@@ -267,9 +314,6 @@ title: Aeolus | Configure Providers
             %img.thumbnail{ :src => "Images/Thumbnails/create_cloud_thumb.png",
                             :title => "Testing Image - click to view at full size in a new window",
                             :alt => "Testing Image - click to view at full size in a new window" }
-
-    %li   
-      Click the New Pool Family button.
       
     %li 
       Specify a valid Pool Family Name.
@@ -287,6 +331,28 @@ title: Aeolus | Configure Providers
             %img.thumbnail{ :src => "Images/Thumbnails/new_pool_thumb.png",
                             :title => "Testing Image - click to view at full size in a new window",
                             :alt => "Testing Image - click to view at full size in a new window" }
+
+
+
+  %p
+    Now you have created a Pool Family; a Pool Family is a group of Pools. The next steps will be to create a Pool. A Pool is a logical group that contains deployments.\
+
+  %ol
+    %li
+      Within your Pool Family there is a button, 'New Pool', click this.
+    %li
+      Fill in the required name, Pool Family, and quota.
+      %p
+        %center
+          %a{ :href => "Images/Configure Provider Images/configure_pool.png",
+              :target => "_blank" }
+            %img.thumbnail{ :src => "Images/Thumbnails/configure_pool_thumb.png",
+                            :title => "Configure Pool - click to view at full size in a new window",
+                            :alt => "Configure Pool - click to view at full size in a new window" }
+
+    %li
+      Click save. Your Pool will be added to the Pool Family.
+      
 
 %br
 

@@ -25,6 +25,10 @@ title: Aeolus | Start an Instance of the Image
       Create the Deployable
 
   %li
+    %a(href="#deployable" title="Creating a Custom Deployable")
+      Creating a Custom Deployable
+
+  %li
     %a(href="#configure_connections" title="Configure EC2 for SSH Connections")
       Configure EC2 for SSH Connections
 
@@ -65,9 +69,35 @@ title: Aeolus | Start an Instance of the Image
 %h1(id="deployable" style="margin-top:0") 
 .section-grouping
   %h2 2. Create the Deployable
+
+  %p
+    This section dictates the instructions for creating the deployable. Once you have pushed an image to a provider, you are able to create a deployable.
+  %ol 
+    %li
+      Once you have uploaded an image, you want to push this image.
+    %li
+      While you are pushing this image, there is an option in the right hand corner that says, 'Create Deployable from Image'. Click this.
+    %li
+      Indicate the name, hardware profile and the catalog then click, save.
+
+    %p
+      %center
+        %a{ :href => "Images/Start Instance Images/deployable_image.png",
+            :target => "_blank" }
+          %img.thumbnail{ :src => "Images/Thumbnails/deployable_image_thumb.png",
+                :title => "Deployable Image - click to view at full size in a new window",
+                :alt => "Deployable Image - click to view at full size in a new window" }
+
+
+    %li
+      You will be redirected to the deployable page where you will be able to launch your image.
+
+%h1(id="deployable" style="margin-top:0") 
+.section-grouping
+  %h2 3. Creating a Custom Deployable
   
   %p
-    This section dictates the instructions for creating the deployable. Following on from the catatlogue instructions.
+    You are able to also create a custom deployable.
   %p
     %ol
       %li        
@@ -132,6 +162,9 @@ title: Aeolus | Start an Instance of the Image
     field for the instance should change to "<em>running</em>". The state will automatically be updated on the page;
     there is no need to refresh the page.
 
+ 
+
+
   %p
     If you are using Amazon EC2, follow the next steps to complete your configuration.
 %br
@@ -141,7 +174,7 @@ title: Aeolus | Start an Instance of the Image
 
 %h1(id="configure_connections" style="margin-top:0")
 .section-grouping
-  %h2 3. Configure EC2 for SSH connections
+  %h2 4. Configure EC2 for SSH Connections
 
   %p
     By default, Amazon EC2 does not allow network connections to instances.
@@ -201,7 +234,7 @@ title: Aeolus | Start an Instance of the Image
 %br
 %h1(id="connect" style="margin-top:0")
 .section-grouping
-  %h2 4. Connect to the Instance
+  %h2 5. Connect to the Instance
 
   %p
     Now we connect to the new running instance using SSH:

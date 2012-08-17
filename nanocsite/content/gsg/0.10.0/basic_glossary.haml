@@ -19,7 +19,7 @@ title: Aeolus | Basic Glossary
     Cloud provider types include Amazon EC2, RHEV-M, Rackspace, etc.  A provider is simply an instance of a provider type - for example, an EC2 region such as us-east-1.  Users may have one or multiple accounts associated with a provider.
 
   %p
-    This guide will configure Aeolus for EC2, as well as a "Mock" provider for those without an available EC2 account.  The mock provider is simply a fake provider used for testing.
+    This guide will configure Aeolus for EC2, as well as a "Mock" provider for those without an available EC2 account.  The mock provider is simply a fake provider used for testing. The guide also covers configuration for oVirt providers.
 
 %br
 
@@ -80,7 +80,7 @@ title: Aeolus | Basic Glossary
 
 
 .section-grouping
-  %h2(id="first-login") 7. Runtime Configuration
+  %h2(id="first-login") 8. Runtime Configuration
 
   %p
     Using run-time configuration provides server-side APIs that let you create and delete data components. 
@@ -88,7 +88,7 @@ title: Aeolus | Basic Glossary
 %br
 
 .section-grouping
-  %h2(id="first-login") 7. AMI
+  %h2(id="first-login") 9. AMI
 
   %p
     Amazon Machine Image
@@ -96,7 +96,7 @@ title: Aeolus | Basic Glossary
 %br
 
 .section-grouping
-  %h2(id="first-login") 8. Conductor UI Diagram
+  %h2(id="first-login") 10. Conductor UI Diagram
 
   %p
     This diagram is a flow chart of the dependencies required for Conductor as of July 2012. 
@@ -111,11 +111,10 @@ title: Aeolus | Basic Glossary
 %br
 
 .section-grouping
-  %h2(id="first-login") 9. XML and TDL
+  %h2(id="first-login") 9.  TDL
 
   %p
-    XML - Extensible Markup Language 
-    TDL - Tally Definition Language
+    TDL - Template Definition Language: is an implementation of Extensible Markup Language (XML).  TDL is useful for marking up policy files because it results in self-describing documents.
 
 %br
 %a.button{ :href => "configuring_aeolus.html", :title => "Configuring Aeolus" }
