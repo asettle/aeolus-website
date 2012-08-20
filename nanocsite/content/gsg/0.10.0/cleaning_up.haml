@@ -56,16 +56,16 @@ title: Aeolus | Cleaning up
       keep.
 
   %p
-    If you are using Amazon EBS, follow the next steps to complete the cleanup.
+    If you are using Amazon EC2, follow the next steps to complete the cleanup.
 %br
 
 %h1(id="remove" style="margin-top:0")
 .section-grouping
-  %h2 2. Remove any AMIs left in EBS 
+  %h2 2. Remove any AMIs left in EC2 
 
   %p
     Aeolus does not yet de-register AMIs, nor delete their corresponding
-    storage from EBS.  For now, you will need to use the AWS Management
+    storage from EC2.  For now, you will need to use the AWS Management
     Console to de-register AMIs and delete S3 storage manually.
 
   %br
@@ -73,7 +73,7 @@ title: Aeolus | Cleaning up
   %h3 1.1 De-registering an AMI
 
   %p
-    Load Amazons' AWS Management Console, make sure you are in the
+    Load Amazons' EC2 Dashboard, make sure you are in the
     %b EBS
     section, then change to the AMIs page.
 
@@ -99,21 +99,19 @@ title: Aeolus | Cleaning up
   %h3 1.2 Removing EBS storage
 
   %p
-    Load Amazons' AWS Management Console, and make sure you are in the
+    Load Amazons' EC2 Dashboard, and make sure you are in the
     %b EBS
     section.
 
   %p
     %ol
       %li
-        Look for any buckets with "<em>imagefactory</em>" in their name, as
+        Look for any snapshots with "<em>imagefactory</em>" in their name, as
         these will have been created by Aeolus.
 
       %li
-        For each of these buckets, delete its contents then delete the bucket
+        For each of these snapshot, delete its contents then delete the snapshot
         itself.
-
-INSERT IMAGE HERE
 
 
 %br
