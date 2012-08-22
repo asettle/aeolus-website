@@ -12,6 +12,9 @@ title: Aeolus | Runtime Configuration
 
 %ul
   %li
+    %a(href="#audrey_server" title="Configuring Audrey Server")
+      Configuring Audrey Server
+
     %a(href="#adding_audrey" title="Adding Audrey Agent to an Instance")
       Adding Audrey Agent to an Instance
 
@@ -26,9 +29,27 @@ title: Aeolus | Runtime Configuration
 %br
 
 
+%h1(id="audrey_server" style="margin-top:0")
+.section-grouping
+  %h2 1. Configuring Audrey Server
+
+  %p
+    The details to configure your audrey server for runtime configuration can be
+  %b found at:
+  &rArr; <b><a href="audrey.html">Audrey</a></b>. 
+  %p
+    The Aeolus Audrey Agent, when built into an image, will attempt to contact a Config Server at launch time. Once contacted the Config Server will provide configuration parameters and tooling.   
+  %p
+    %ul
+      %li
+        For example: The Config Server contact information is passed to the Audrey Agent running in an EC2 instance using Amazon EC2 instance-specific metadata (AKA user data)
+
+%br
+
+
 %h1(id="adding_audrey" style="margin-top:0")
 .section-grouping
-  %h2 1. Adding Audrey Agent to an Instance
+  %h2 2. Adding Audrey Agent to an Instance
 
   %p
     The following instructions add Audrey Agent to the template, which when built and pushed, becomes the image.
@@ -41,19 +62,21 @@ title: Aeolus | Runtime Configuration
     %p
       %pre
         :preserve
-          template
+          &lt;template&gt;
             ...
-            packages
-              package name='aeolus-audrey-agent'
-            packages
+            &lt;packages&gt;
+              &lt;package name='aeolus-audrey-agent'/&gt;
+            &lt;/packages&gt;
             ...
-          template
+          &lt;/template&gt;
 
 
 %h1(id="adding_config" style="margin-top:0")
 .section-grouping
-  %h2 2. Adding Runtime Configuration to a Deployable
+  %h2 3. Adding Runtime Configuration to a Deployable
 
+  %p
+  Now you have a Config Server up and running (or you should do), it's time to build some instasnces that will register with Config Server. This is relatively easy, you want to include the aeolus-audrey-agent package in your image.
   %p
   Open the deployable:
   %ol
@@ -68,49 +91,51 @@ title: Aeolus | Runtime Configuration
     %li
     Click on the Edit XML button. 
     %li
-    Edit the desired section of the deployable to add runtime configuration.
-
-  %p
-    %center
-      %a{ :href => "Images/Runtime Images/edit_XML.png",
+    Edit the desired section of the deployable to add runtime configuration. All of the Audrey examples are kept here:
+    %a{ :href => "https://github.com/aeolusproject/audrey/tree/master/examples",
           :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/edit_XML_thumb.png",
-              :title => "Edit XML Image - click to view at full size in a new window",
-              :alt => "Edit XML Image - click to view at full size in a new window" }
+    .note
+      %p
+        %b NOTE - Include one or more services for each instance (signified with an assembly element). 
+
+    %li
+    Save and begin to build this deployable.
+
+    %p
+      %center
+        %a{ :href => "Images/Runtime Images/edit_XML.png",
+            :target => "_blank" }
+          %img.thumbnail{ :src => "Images/Thumbnails/edit_XML_thumb.png",
+                :title => "Edit XML Image - click to view at full size in a new window",
+                :alt => "Edit XML Image - click to view at full size in a new window" }
+
+    %li
+    You have now begun to build your deployable with the edited XML.
+    %li
+    Once you have pushed the image, you should go on to launch it. 
+    .note
+      %p
+        %b Note - Check your XML, only the 'services' section is new. It includes an 'executable' script, referenced as a remote URL that will be accessed and run. Then there are a series of 'parameter' tags defining parameters passed to the executable (script). Each 'parameter' has a value that can be customized at launch-time.
+    
+    
 
 %br
 
 %h1(id="launching_config" style="margin-top:0")
 .section-grouping
-  %h2 3. Launching Instances with a Runtime Configuration
+  %h2 4. Launching Instances with a Runtime Configuration
 
   %p
-    This section requires the instance to be running (as opposed to stopped). Check this before proceeding.
-
+    Aeolus provides users with runtime configuration options when launching an application.
   %ol
     %li
-    Click on the 
-    %bMonitor tab and then select
-    &rArr; <b>Tabled view</b>. This will display all your information in a format based more suitably for these instructions.
+      After selecting the deployment post launch, Aeolus will display a list of parameter fields and references defined in the deployable.
     %li
-    Click on the pool you're currently operating within.
+      Fill in the desired configuration values in the parameter fields.
     %li
-    Within that, click on the name of the deployment. You will now be in the deployment able to edit.
-    %li
-    Check that the instance is running, and click on the instance.
-    %li
-    This is where you are able to edit the properities and configuration of the deployable. Select the button, 'Config Parameters' next to the 'Properties' button.
-    %li
-    Within this, you have the ability to type the desired configuration values in its parameter fields.
+      Click save. You have now launched an instance with runtime configuration.
 
-  %p
-    %center
-      %a{ :href => "Images/Runtime Images/config_button.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/config_button_thumb.png",
-              :title => "Configuration Button Image - click to view at full size in a new window",
-              :alt => "Configuration Button Image - click to view at full size in a new window" }
-      
+   
 
 %br
 
