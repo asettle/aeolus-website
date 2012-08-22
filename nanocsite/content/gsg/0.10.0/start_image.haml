@@ -8,8 +8,8 @@ title: Aeolus | Start an Instance of the Image
   when desired.
 
 %p
-  We'll take you through starting an instance of the image using Aeolus's
-  web interface.  Then, if you're using Amazon EC2, we'll show you how to connect to that image remotely using
+  We will take you through starting an instance of the image using Aeolus's
+  web interface.  Then, if you are using Amazon EC2, we will show you how to connect to that image remotely using
   SSH.
 
 = render 'gsg_navigation', :selected_page => 'start_image.html'
@@ -27,6 +27,10 @@ title: Aeolus | Start an Instance of the Image
   %li
     %a(href="#deployable" title="Creating a Custom Deployable")
       Creating a Custom Deployable
+
+  %li
+    %a(href="#launch_deployment" title="Launching a Deployment")
+      Launching a Deployment
 
   %li
     %a(href="#configure_connections" title="Configure EC2 for SSH Connections")
@@ -126,55 +130,57 @@ title: Aeolus | Start an Instance of the Image
         Give your deployment a name and upload the deployable you just created.
         Click the
         %b Next
-        button.
+        button where you will begin to launch your deployment.
 
-      %li
-        To launch the deployment click the "Launch" button.
+%h1(id="launch_deployment" style="margin-top:0")
+.section-grouping
+  %h2 4. Launching a Deployment
 
-        %br
-        %center
-          %a{ :href => "Images/Start Instance Images/launch_deployment.png",
-              :target => "_blank" }
-            %img.thumbnail{ :src => "Images/Thumbnails/launch_deployment_thumb.png",
-                  :title => "Launch Deployment - click to view at full size in a new window",
-                  :alt => "Launch  Deployment - click to view at full size in a new window" }
-        %br
+  %ol
+    %li
+      To launch the deployment click the "Launch" button.
 
-  %p
-    Aeolus will then launch an instance of the template, using the AMI
-    created on the previous page.
-  %p
-    The main view will list your instances, with the message
-    "<em>Deployment launched.</em>" near the top:
+    %br
+      %center
+        %a{ :href => "Images/Start Instance Images/launch_deployment.png",
+            :target => "_blank" }
+          %img.thumbnail{ :src => "Images/Thumbnails/launch_deployment_thumb.png",
+                    :title => "Launch Deployment - click to view at full size in a new window",
+                    :alt => "Launch  Deployment - click to view at full size in a new window" }
+      %br
 
-  %p
-    &nbsp;&nbsp;&nbsp;
-    %center
-      %a{ :href => "Images/Start Instance Images/instance_added.png",
-          :target => "_blank" }
-        %img.thumbnail{ :src => "Images/Thumbnails/instance_added_thumb.png",
-              :title => "Instance 1 added",
-              :alt => "Instance 1 added" }
+    %li
+      Aeolus will then launch an instance of the template, using the AMI
+      created on the previous page.
+    %li
+      The main view will list your instances, with the message
+      "<em>Deployment launched.</em>" near the top:
 
-  %p
-    Within a minute or two, the
-    %b State
-    field for the instance should change to "<em>running</em>". The state will automatically be updated on the page;
-    there is no need to refresh the page.
+    %li
+      &nbsp;&nbsp;&nbsp;
+      %center
+        %a{ :href => "Images/Start Instance Images/instance_added.png",
+            :target => "_blank" }
+          %img.thumbnail{ :src => "Images/Thumbnails/instance_added_thumb.png",
+                :title => "Instance 1 added",
+                :alt => "Instance 1 added" }
 
- 
+    %li
+      Within a minute or two, the
+      %b State
+      field for the instance should change to "<em>running</em>". The state will automatically be updated on the page;
+      there is no need to refresh the page.
 
-
-  %p
-    If you are using Amazon EC2, follow the next steps to complete your configuration.
-%br
+    %li
+      If you are using Amazon EC2, follow the next steps to complete your configuration.
+  %br
 
 
 %br
 
 %h1(id="configure_connections" style="margin-top:0")
 .section-grouping
-  %h2 4. Configure EC2 for SSH Connections
+  %h2 5. Configure EC2 for SSH Connections
 
   %p
     By default, Amazon EC2 does not allow network connections to instances.
@@ -234,7 +240,7 @@ title: Aeolus | Start an Instance of the Image
 %br
 %h1(id="connect" style="margin-top:0")
 .section-grouping
-  %h2 5. Connect to the Instance
+  %h2 6. Connect to the Instance
 
   %p
     Now we connect to the new running instance using SSH:

@@ -16,10 +16,10 @@ title: Aeolus | Basic Glossary
   %h2(id="welcome") 1. Provider Type and Provider
 
   %p
-    Cloud provider types include Amazon EC2, RHEV-M, Rackspace, etc.  A provider is simply an instance of a provider type - for example, an EC2 region such as us-east-1.  Users may have one or multiple accounts associated with a provider.
+    A provider is simply an instance of a provider type. For example, an EC2 region such as us-east-1. Users can have one or multiple accounts associated with a provider. Examples of cloud provider types include Amazon EC2, RHEV-M, and Rackspace.
 
   %p
-    This guide will configure Aeolus for EC2, as well as a "Mock" provider for those without an available EC2 account.  The mock provider is simply a fake provider used for testing. The guide also covers configuration for oVirt providers.
+    This guide will configure Aeolus for EC2, as well as a "Mock" provider for those without an available EC2 account.  The mock provider is simply a fake provider used for testing. The guide also covers configuration for oVirt/RHEVM providers.
 
 %br
 
@@ -49,7 +49,7 @@ title: Aeolus | Basic Glossary
     A deployable references one or more images, along with the appropriate hardware profiles for those images.  A deployable is launched as a deployment.
 
   %p
-    A deployable is lauched as a deployment.  A deployment consists of one or more instances controlled as a group, such as a database server, an application server, and multiple front-end web servers.
+    A deployment consists of one or more instances controlled as a group, such as a database server, an application server, and multiple front-end web servers.
 
 %br
 
@@ -74,21 +74,13 @@ title: Aeolus | Basic Glossary
   %h2(id="first-login") 7. Audrey
 
   %p
-    Set of tools for run-time configuration on Cloud instances. Enables user to perform further configuration using customizable script.
+    Set of tools for run-time configuration on cloud instances. Enables user to perform further configuration using customizable script.
 
 %br
 
 
 .section-grouping
-  %h2(id="first-login") 8. Runtime Configuration
-
-  %p
-    Using run-time configuration provides server-side APIs that let you create and delete data components. 
-
-%br
-
-.section-grouping
-  %h2(id="first-login") 9. AMI
+  %h2(id="first-login") 8. AMI
 
   %p
     Amazon Machine Image
@@ -96,7 +88,7 @@ title: Aeolus | Basic Glossary
 %br
 
 .section-grouping
-  %h2(id="first-login") 10. Conductor UI Diagram
+  %h2(id="first-login") 9. Conductor UI Diagram
 
   %p
     This diagram is a flow chart of the dependencies required for Conductor as of July 2012. 
@@ -111,10 +103,13 @@ title: Aeolus | Basic Glossary
 %br
 
 .section-grouping
-  %h2(id="first-login") 9.  TDL
+  %h2(id="first-login") 10.  TDL
 
   %p
-    TDL - Template Definition Language: is an implementation of Extensible Markup Language (XML).  TDL is useful for marking up policy files because it results in self-describing documents.
+    Template Definition Language (TDL) is an implementation of Extensible Markup Language (XML). TDL is useful for marking up policy files because it results in self-describing documents.
+
+  %p
+    TDL is an XML-based language for creating image templates. TDL files define aspects of a virtual machine image including operating system, installation settings, packages, and files. An Aeolus user imports TDL files into Conductor. Aeolus (specially Imagefactory and Oz) interprets these TDL files and builds them into images, which can be pushed into cloud providers.  
 
 %br
 %a.button{ :href => "configuring_aeolus.html", :title => "Configuring Aeolus" }

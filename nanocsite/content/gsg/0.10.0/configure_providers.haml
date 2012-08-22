@@ -5,14 +5,8 @@ title: Aeolus | Configure Providers
 
 %p
   On this page we configure Aeolus for <b>Mock</b>, a <i>pretend</i>
-  Cloud Provider.  It is useful for demonstration and testing purposes.
+  Cloud Provider.  It is useful for demonstration and testing purposes. This section will configure EC2, this will require an existing Amazon AWS account. This page will also go through the steps to configure RHEVM/oVirt which will require both RHEVM and oVirt to be set up on a server. 
 
-%p
-  This section will configure EC2, this will require an existing Amazon
-  AWS account. This page will also go through the steps to configure RHEVM/oVirt which will require both RHEVM and oVirt to be set up on a server. 
-
-%p
-  We will also configure Audrey Configuration and finally run through the steps of creating a cloud.
 
   %h2 Which provider would you like to configure?
 
@@ -134,7 +128,7 @@ title: Aeolus | Configure Providers
   %ol
     %li
       In the
-      %b Administer tab
+      %b Administer
       &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
 
       %p
@@ -254,18 +248,30 @@ title: Aeolus | Configure Providers
 
   %ol
     %li
-      In the
-      %b Administer tab
-      &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
-      %li 
-      The centre right hand side of the page is a drop down list listing available providers. As already shown in the EC2 configuration above. Instead of chosing a region for your provider, click, 'New Provider'.
-      %li
-        On the page displayed, input the name, url, provider type and the API provider.
-        Ensure that the provider type is 'RHEV-M'
+    In the
+    %b Administer tab
+    &rArr; <b>Cloud Providers</b> button: This switches to a view showing the configured Cloud Providers.
+    %li 
+    oVirt/RHEVM was automatically populated by the
+    %em aeolus-configure
+    command we gave earlier. 
+    %li 
+      At the top of the Cloud Providers page, there is a drop down list listing available providers. You should see the above list of providers, and you can select either oVirt or RHEV-M.
 
-        .note
-          %p
-            %b NOTE - The provider type 'RHEV-M' can be selected for both RHEV-M and oVirt managers.
+    %li
+      With a provider selected, press the "Accounts" button, and then choose "New Account."
+
+    %li
+      Fill in the account details, with your oVirt or RHEV-M username and password.
+
+    %li
+      When you are done, click the "<b>Save</b> button".
+
+    %li 
+      Verify the account details work
+
+    %li
+      After saving the account above, you can press the "Test Connection" button to test your credentials.
 
       %li 
         Save this provider.
@@ -275,9 +281,6 @@ title: Aeolus | Configure Providers
 
       %li
         With a provider selected, press the "Accounts" button, and then choose "New Account."
-
-      %li
-        Fill in the account details, with your oVirt or RHEV-M account info.
 
       %li
         Click save.
@@ -298,10 +301,7 @@ title: Aeolus | Configure Providers
   %h2(id="pool") 3. Creating a Pool
 
   %p
-    A cloud, put simply, is a 'storage capacity as a service'. It entrusts services with a users data, software and computation over a network.
-
-  %p
-    To create a cloud, follow these steps:
+    To create a Pool Family, follow these steps:
   
   %ol
     %li   
@@ -322,7 +322,7 @@ title: Aeolus | Configure Providers
       Specify the Maximum Running Instances. Leave this field blank for unlimited instances.
      
     %li 
-      Click the Save button to save your new pool. 
+      Click the Save button to save your new Pool Family. 
 
       %p
         %center
@@ -335,7 +335,7 @@ title: Aeolus | Configure Providers
 
 
   %p
-    Now you have created a Pool Family; a Pool Family is a group of Pools. The next steps will be to create a Pool. A Pool is a logical group that contains deployments.\
+    Now you have created a Pool Family; a Pool Family is a group of Pools. The next steps will be to create a Pool. A Pool is a logical group that contains deployments.
 
   %ol
     %li

@@ -25,27 +25,27 @@ title: Aeolus | Command Line Syntax
 
   %p 
     The following list outlines the action types for Aeolus.
-    %ul
-      %li
-        image - Actions related to image builds, pushes and imports.
+  %ul
+    %li
+    image - Actions related to image builds, pushes and imports.
 
-  %p 
+  %p
     The following list outlines the commands for aeolus image.
-    %ul
-      %li 
-        list -  List resources such as images, image targets, cloud resource providers, resource provider accounts 
-      %br
-      %li
-        build - Build an image from a TDL file
-      %br
-      %li
-        push - Push a built image to a cloud provider
-      %br
-      %li
-        import - Import an image from a cloud provider
-      %br
-      %li
-        delete - Delete a built image
+  %ul
+    %li
+    list -  List resources such as images, image targets, cloud resource providers, resource provider accounts 
+    %br
+    %li
+    build - Build an image from a TDL file
+    %br
+    %li
+    push - Push a built image to a cloud provider
+    %br
+    %li
+    import - Import an image from a cloud provider
+    %br
+    %li
+    delete - Delete a built image
 
 %br
 
@@ -56,162 +56,165 @@ title: Aeolus | Command Line Syntax
   %p 
     The following options can be used in conjunction with the list command. These are all the options that can be used with the list function. 
 
+  %h3 List Options:
   %p
-    %h3 List Options:
-    %ul
-      %li
-        To retrieve a list of all images: 
-      %pre --images, -i.  
-      %br
-      %li
-        This limits the image list to a certain environment: 
-      %pre --environment, -E. 
-      %br
-      %li
-        This retrives a list of all builds for an image. This requires the UUID of an image: 
-      %pre --builds, -b. 
-      %br        
-      %li
-        This retrieves a list of all target images for a build. Requires the UUID of a build: 
-      %pre --targetimages BUILDID, -t. 
-      %br
-      %li
-        This retrieves a list of all provider images for a target image. Requires the UUID of a target image: 
-      %pre --providerimages TARGETIMAGE, -P. 
-      %br
-      %li
-        This retrieves a list of all cloud resource provider types: 
-      %pre --targets, -g. 
-      %br
-      %li 
-        This retrives a list of cloud resource provider connections: 
-      %pre --providers, -p. 
-      %br
-      %li 
-        This retrives a list of all cloud resource provider accounts: 
-      %pre --accounts, -a. 
-      %br
-      %li 
-        This retrives a list of all pools: 
-      %pre --environments, -c. 
+    To retrieve a list of all images: 
+  %pre --images, -i.  
+  %br
+  %p
+    This limits the image list to a certain environment: 
+    %pre --environment, -E. 
+  %br
+  %p
+    This retrives a list of all builds for an image. This requires the UUID of an image: 
+  %pre --builds, -b. 
+  %br        
+  %p
+    This retrieves a list of all target images for a build. Requires the UUID of a build: 
+  %pre --targetimages BUILDID, -t. 
+  %br
+  %p
+    This retrieves a list of all provider images for a target image. Requires the UUID of a target image: 
+  %pre --providerimages TARGETIMAGE, -P. 
+  %br
+  %p
+    This retrieves a list of all cloud resource provider types: 
+  %pre --targets, -g. 
+  %br
+  %p 
+    This retrives a list of cloud resource provider connections: 
+  %pre --providers, -p. 
+  %br
+  %p
+    This retrives a list of all cloud resource provider accounts: 
+  %pre --accounts, -a. 
+  %br
+  %p
+    This retrives a list of all pools: 
+  %pre --environments, -c. 
 
   .note
     %p
       %b    
       %h4 List Examples:
-      %li List Images: # aeolus image list --images
+      %p List Images:
+      %pre # aeolus image list --images
       %br
-      %li List Builds: # aeolus image list --builds 29f75966-52b7-11e1-8b34-001a4a400e1c
+      %p List Builds: 
+      %pre # aeolus image list --builds 29f75966-52b7-11e1-8b34-001a4a400e1c
 
 
+
+  %h3 Build Options:
   %p
-    %h3 Build Options:
-    %ul 
-      %li
-        Build an image from a TDL file. Requires a local location of a TDL file: 
-      %pre -e, --template FILE.
-      %br
-      %li
-        Disable TDL validation of template file: 
-      %pre -z, --no-validation
-      %br
-      %li
-        Disable TDL validation of template file: 
-      %pre -T, --target TARGET1,TARGET2
-      %br
-      %li
-        Build for specific cloud: 
-      %pre -E, --environment ENVIRONMENT  
+    Build an image from a TDL file. Requires a local location of a TDL file: 
+  %pre -e, --template FILE.
+  %br
+  %p
+    Disable TDL validation of template file: 
+  %pre -z, --no-validation
+  %br
+  %p
+    Disable TDL validation of template file: 
+  %pre -T, --target TARGET1,TARGET2
+  %br
+  %p
+    Build for specific cloud: 
+  %pre -E, --environment ENVIRONMENT  
 
   .note
     %p
       %b    
       %h4 Build Examples:  
-      %li Build image for a deployable: # aeolus image build --target ec2 --template mytemplate.xml --environment default 
+      %p Build image for a deployable: 
+      %pre # aeolus image build --target ec2 --template mytemplate.xml --environment default 
       %br
-      %li Build image for multiple deployables: # aeolus image build --target ec2,rhevm --template mytemplate.xml --environment default
+      %p Build image for multiple deployables: 
+      %pre # aeolus image build --target ec2,rhevm --template mytemplate.xml --environment default
 
 
+
+  %h3 Push Options:
   %p
-    %h3 Push Options:
-    %ul
-      %li
-        Use base image for the push. Requires the UUID of an image: 
-      %pre -I, --image IMAGEID
-      %br
-      %li
-        Use build for the push. Requires the UUID of a build: 
-      %pre -B, --build BUILDID
-      %br
-      %li
-        Use target image from a build. Requires the UUID of a target image: 
-      %pre -t, --targetimages TARGETID
-      %br
-      %li
-        Name of cloud resource provider accounts to use for pushing target images. Ensure a target image exists for each account: 
-      %pre -A, --account NAME1,NAME2
+    Use base image for the push. Requires the UUID of an image: 
+  %pre -I, --image IMAGEID
+  %br
+  %p
+    Use build for the push. Requires the UUID of a build: 
+  %pre -B, --build BUILDID
+  %br
+  %p
+    Use target image from a build. Requires the UUID of a target image: 
+  %pre -t, --targetimages TARGETID
+  %br
+  %p
+    Name of cloud resource provider accounts to use for pushing target images. Ensure a target image exists for each account: 
+  %pre -A, --account NAME1,NAME2
 
   .note
     %p
       %b    
       %h4 Push Examples: 
-      %li Push target image to an account: # aeolus image push --account myaccount --targetimage 5c0c27db-161b-4421-8dfb-2f551b74f296
+      %p Push target image to an account:
+      %pre # aeolus image push --account myaccount --targetimage 5c0c27db-161b-4421-8dfb-2f551b74f296
       %br
-      %li Push target images from a build to accounts: # aeolus image push --account myaccount --build 5537e55a-8e7b-4030-b4e8-8e062a5c99e8
+      %p Push target images from a build to accounts:  
+      %pre # aeolus image push --account myaccount --build 5537e55a-8e7b-4030-b4e8-8e062a5c99e8
 
 
 
+
+  %h3 Import Options:
   %p
-    %h3 Import Options:
-    %ul
-      %li
-        The UUID for a given object. Examples include AMI IDs from your EC2 provider or template UUIDs from your Red Hat Enterprise Virtualization environment:
-      %pre -d, --id ID
-      %br
-      %li
-        The XML description for an object: 
-      %pre -r, --description DESCRIPTION
-      %br
-      %li
-        Names of the cloud resource provider accounts to use for imports:
-      %pre -A, --account NAME1,NAME2
-      %br
-      %li
-        Name of the clouds to use for imports:-E, 
-      %pre --environment ENVIRONMENT
+    The UUID for a given object. Examples include AMI IDs from your EC2 provider or template UUIDs from your Red Hat Enterprise Virtualization environment:
+  %pre -d, --id ID
+  %br
+  %p
+    The XML description for an object: 
+  %pre -r, --description DESCRIPTION
+  %br
+  %p
+    Names of the cloud resource provider accounts to use for imports:
+  %pre -A, --account NAME1,NAME2
+  %br
+  %p
+    Name of the clouds to use for imports:-E, 
+  %pre --environment ENVIRONMENT
 
   .note
     %p
       %b    
       %h4 Import Examples:
-      %li Import image from a provider: # aeolus image import --account my-ec2 --environment default --id ami-8d0cdce4 --description '<image><name>myAMI</name></image>'
+      %p Import image from a provider:  
+      %pre # aeolus image import --account my-ec2 --environment default --id ami-8d0cdce4 --description '<image><name>myAMI</name></image>'
 
+
+  %h3 Delete Options:
   %p
-    %h3 Delete Options:
-    %ul
-      %li
-        Delete an image and all associated builds:-I, 
-      %pre --image IMAGEID
-      %br
-      %li
-        Delete a single build and all associated target images:-B, 
-      %pre --build BUILDID
-      %br
-      %li
-        Delete a single target image from a build and all associated cloud resource provider images:-m, 
-      %pre --targetimage TARGETID
-      %br
-      %li
-        Delete a single image on a cloud resource provider:-D, 
-      %pre --providerimage PROVIDERIMAGEID
+    Delete an image and all associated builds:-I, 
+  %pre --image IMAGEID
+  %br
+  %p
+    Delete a single build and all associated target images:-B, 
+  %pre --build BUILDID
+  %br
+  %p
+    Delete a single target image from a build and all associated cloud resource provider images:-m, 
+  %pre --targetimage TARGETID
+  %br
+  %p
+    Delete a single image on a cloud resource provider:-D, 
+  %pre --providerimage PROVIDERIMAGEID
 
   .note
     %p
       %b 
       %h4 Delete Examples:
-      %li Delete image: # aeolus image delete --image 29f75966-52b7-11e1-8b34-001a4a400e1c
+      %p Delete image:
+      %pre # aeolus image delete --image 29f75966-52b7-11e1-8b34-001a4a400e1c
       %br
-      %li Delete build: # aeolus image delete --build 5537e55a-8e7b-4030-b4e8-8e062a5c99e8
+      %p Delete build: 
+      %pre # aeolus image delete --build 5537e55a-8e7b-4030-b4e8-8e062a5c99e8
         
 
 %br

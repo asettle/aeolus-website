@@ -3,21 +3,131 @@ title: Aeolus | Firewalls
 ---
 %h1 Firewall Configuration
 
-%p Firewall configuration can also be compiled via a graphic interface.This is a step by step instruction of updating the firewall to configure Aeolus. Configuring your firewall to open up port 443 is required for the usage of Aeolus, it does not matter how you chose to do so.
+%p 
+  Firewall configuration can be compiled via a graphic interface and Command Line Interface.
+%p 
+  These are step by step instructions of updating the firewall to configure Aeolus for both a CL and GU interfaces. 
+%p
+  Configuring your firewall to open up port 443 is required for the usage of Aeolus, it does not matter how you chose to do so.
 
 = render 'gsg_navigation', :selected_page => 'firewall.html'
+
+
+%ul
+  %li
+    %a(href="#update-firewall" title="Update the Firewall via CLI")
+      Update the Firewall via CLI
+
+  %li
+    %a(href="#firewall" title="Update the firewall via GUI")
+      Update the firewall via GUI
 
 
 %br
 
 .section-grouping
-  %h3(id="firewall") 1. Firewall Configuration
+  %h2(id="update-firewall") 1. Update the Firewall via CLI
+
+  %p
+    This is a step by step instruction of updating the firewall to configure Aeolus. This is manually required and unless your computer ports are already set up for a secure connection; Aeolus will not function on other ports so this step is imperative. 
+
+  %p
+    Because Aeolus uses an encrypted web interface, the server running it
+    must accept connections on TCP port 443.
+
+  %ol
+    %li
+      Firstly, update the firewall running on the Aeolus server to allow for thes particular connections.
+    %li
+      For the standard iptables firewall on Fedora or RHEL, add this line: 
+    %pre
+      :preserve
+        -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+    %li
+      To both of these files (one is for IPv4, one is for IPv6):
+
+    %p
+      %pre
+        :preserve
+          /etc/sysconfig/iptables
+          /etc/sysconfig/ip6tables
+
+    %li
+      The correct place is in the
+      %b OUTPUT
+      chain, just before the
+      %b REJECT
+      lines start.
+    %li
+      For example, this is the default
+      %em /etc/sysconfig/iptables
+      file, with the line added (in blue):
+
+    %p
+      %pre
+        :preserve
+          *filter
+          :INPUT ACCEPT [0:0]
+          :FORWARD ACCEPT [0:0]
+          :OUTPUT ACCEPT [0:0]
+          -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+          -A INPUT -p icmp -j ACCEPT
+          -A INPUT -i lo -j ACCEPT
+          -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+          <span style="color: blue">-A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT</span>
+          -A INPUT -j REJECT --reject-with icmp-host-prohibited
+          -A FORWARD -j REJECT --reject-with icmp-host-prohibited
+          COMMIT
+
+    %li
+      Do the same for the
+      %em ip6tables
+      file as well.
+
+    %li 
+      The firewall rules then need to be reloaded:
+  
+    %p
+      %pre
+        :preserve
+          $ sudo service iptables restart
+          iptables: Flushing firewall rules:                         [  <span style="color: chartreuse">OK</span>  ]
+          iptables: Setting chains to policy ACCEPT: nat mangle filte[  <span style="color: chartreuse">OK</span>  ]
+          iptables: Unloading modules:                               [  <span style="color: chartreuse">OK</span>  ]
+          iptables: Applying firewall rules:                         [  <span style="color: chartreuse">OK</span>  ]
+
+    %p
+      %pre
+        :preserve
+          $ sudo service ip6tables restart
+          ip6tables: Flushing firewall rules:                        [  <span style="color: chartreuse">OK</span>  ]
+          ip6tables: Setting chains to policy ACCEPT: filter         [  <span style="color: chartreuse">OK</span>  ]
+          ip6tables: Unloading modules:                              [  <span style="color: chartreuse">OK</span>  ]
+          ip6tables: Applying firewall rules:                        [  <span style="color: chartreuse">OK</span>  ]
+
+    %li
+      The Aeolus server now accepts secure connections from a web browser.
+
+    .note
+      %p
+        %b USEFUL NOTE -
+        You can additionally open TCP port 80, for users to attempt connecting
+        via standard http.
+    
+      %p Aeolus automatically redirects them to the secure port. 
+
+
+
+%br
+
+.section-grouping
+  %h2(id="firewall") 2. Update the firewall via GUI
 
   %p
     For this section you will need to have system-config-firewall-tui installed on your computer. If you do not, use this command line as root user:
-  %pre
-    :preserve
-      yum install system-config-firewall-tui
+    %pre
+      :preserve
+        $ sudo yum install system-config-firewall-tui
 
   %p
     Once the package is installed, you can run the follow instructions from the command line (again as root).
@@ -27,7 +137,7 @@ title: Aeolus | Firewalls
         Open terminal. Type in the line.
       %pre
         :preserve
-          system-config-firewall-tui
+          $ sudo system-config-firewall-tui
 
       %li
         This page will appear:
@@ -41,19 +151,19 @@ title: Aeolus | Firewalls
                   :alt => "Configuration Page - click to view at full size in a new window" }
 
       %li
-        Use the tab key to select customize. 
+        Use the TAB key to select customize. 
       %br
       %li
         The next page will ask you to define which pages are trusted. For this exercise you want to scroll down until you see 'Secure WWW (HTTPS). 
       %br
       %li 
-        Press enter to select and use the tab keys to move forward.
+        Press enter to select and use the TAB keys to move forward.
       %br
       %li
-        The next step will require you to specify which ports you want opened. In this instance, we want port 443: tcp and 443: udp.
+        The next step will require you to specify which ports you want opened. In this instance, we want port 443: tcp.
       %br
       %li
-        Use the tabs keys to select 'add' and enter 443 as the port/port range, and tcp and udp as the protocol. You will have to do these in separate instances.
+        Use the TAB keys to select 'add' and enter 443 as the port/port range, and tcp and udp as the protocol. You will have to do these in separate instances.
 
       %p
         %center
@@ -71,11 +181,11 @@ title: Aeolus | Firewalls
         Click forward.
       %br
       %li
-        The next few pages will ask you to configure other sections of the firewall. This is unnecessary for this process. Continously click 'forward' until you reach the end page.
+        The next few pages asks you to configure other sections of the firewall. This is unnecessary for this process. Click Forward until you reach the end page.
       %br
 
       %li
-        Save any content it requires you to save.
+        Save any required contents.
       %br
       %li
         Click close.
@@ -90,10 +200,5 @@ title: Aeolus | Firewalls
 
 %a.button{ :href => "first_login.html", :title => "First Login" }
   First Login
-  %img{:src => "/images/button-right.png", :alt => "→"}
-
-
-
-          
-        
+  %img{:src => "/images/button-right.png", :alt => "→"}        
             
