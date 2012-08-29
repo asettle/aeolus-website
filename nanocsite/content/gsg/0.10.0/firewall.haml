@@ -3,10 +3,10 @@ title: Aeolus | Firewalls
 ---
 %h1 Firewall Configuration
 
-%p 
+%p
   Firewall configuration can be compiled via a graphic interface and Command Line Interface.
-%p 
-  These are step by step instructions of updating the firewall to configure Aeolus for both a CL and GU interfaces. 
+%p
+  These are step by step instructions of updating the firewall to configure Aeolus for both a CL and GU interfaces.
 %p
   Configuring your firewall to open up port 443 is required for the usage of Aeolus, it does not matter how you chose to do so.
 
@@ -29,7 +29,7 @@ title: Aeolus | Firewalls
   %h2(id="update-firewall") 1. Update the Firewall via CLI
 
   %p
-    This is a step by step instruction of updating the firewall to configure Aeolus. This is manually required and unless your computer ports are already set up for a secure connection; Aeolus will not function on other ports so this step is imperative. 
+    This is a step by step instruction of updating the firewall to configure Aeolus. This is manually required and unless your computer ports are already set up for a secure connection; Aeolus will not function on other ports so this step is imperative.
 
   %p
     Because Aeolus uses an encrypted web interface, the server running it
@@ -39,7 +39,7 @@ title: Aeolus | Firewalls
     %li
       Firstly, update the firewall running on the Aeolus server to allow for thes particular connections.
     %li
-      For the standard iptables firewall on Fedora or RHEL, add this line: 
+      For the standard iptables firewall on Fedora or RHEL, add this line:
     %pre
       :preserve
         -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
@@ -84,9 +84,9 @@ title: Aeolus | Firewalls
       %em ip6tables
       file as well.
 
-    %li 
+    %li
       The firewall rules then need to be reloaded:
-  
+
     %p
       %pre
         :preserve
@@ -113,8 +113,8 @@ title: Aeolus | Firewalls
         %b USEFUL NOTE -
         You can additionally open TCP port 80, for users to attempt connecting
         via standard http.
-    
-      %p Aeolus automatically redirects them to the secure port. 
+
+      %p Aeolus automatically redirects them to the secure port.
 
 
 
@@ -124,81 +124,52 @@ title: Aeolus | Firewalls
   %h2(id="firewall") 2. Update the firewall via GUI
 
   %p
-    For this section you will need to have system-config-firewall-tui installed on your computer. If you do not, use this command line as root user:
+    For this section you will need to have system-config-firewall-tui installed on your computer. If you do not, use this command line as the root user:
     %pre
       :preserve
         $ sudo yum install system-config-firewall-tui
 
   %p
-    Once the package is installed, you can run the follow instructions from the command line (again as root).
+    Once the package is installed, you can run the following instructions from the command line (again as root).
 
     %ol
       %li
-        Open terminal. Type in the line.
-      %pre
-        :preserve
-          $ sudo system-config-firewall-tui
+        Open a terminal window. Type in the line:
+        %pre
+          :preserve
+            $ sudo system-config-firewall-tui
 
       %li
         This page will appear:
-
-      %p
+        %br
         %center
-          %a{ :href => "Images/Firewall Images/config_page.png",
-              :target => "_blank" }
-            %img.thumbnail{ :src => "Images/Thumbnails/config_page_thumb.png",
-                  :title => "Configuration Page - click to view at full size in a new window",
-                  :alt => "Configuration Page - click to view at full size in a new window" }
+          %img.thumbnail{ :src => "Images/Firewall Images/config_page.png",
+                          :title => "Configuration Page", :alt => "Configuration Page" }
 
       %li
-        Use the TAB key to select customize. 
+        Use the TAB key to select 'Customize'.
       %br
       %li
-        The next page will ask you to define which pages are trusted. For this exercise you want to scroll down until you see 'Secure WWW (HTTPS). 
-      %br
-      %li 
-        Press enter to select and use the TAB keys to move forward.
+        The next page will ask you to define which ports are trusted. For this exercise you want to scroll down until you see '<b>Secure WWW (HTTPS)</b>'.
       %br
       %li
-        The next step will require you to specify which ports you want opened. In this instance, we want port 443: tcp.
-      %br
-      %li
-        Use the TAB keys to select 'add' and enter 443 as the port/port range, and tcp and udp as the protocol. You will have to do these in separate instances.
-
-      %p
+        Press enter to select it, then use the TAB keys to choose 'Close':
+        %br
         %center
-          %a{ :href => "Images/Firewall Images/config_tcp.png",
-              :target => "_blank" }
-            %img.thumbnail{ :src => "Images/Thumbnails/config_tcp_thumb.png",
-                  :title => "TCP Configuration - click to view at full size in a new window",
-                  :alt => "TCP Configuration - click to view at full size in a new window" }
-
-      %br
-      %li
-        Once you have allocated the additional ports, it will appear in the scroll section of the original page. You can see here you have added 443:tcp and 443:udp.
-      %br
-      %li
-        Click forward.
-      %br
-      %li
-        The next few pages asks you to configure other sections of the firewall. This is unnecessary for this process. Click Forward until you reach the end page.
-      %br
+          %img.thumbnail{ :src => "Images/Firewall Images/secure_www.png",
+                          :title => "Secure WWW port", :alt => "Secure WWW port" }
 
       %li
-        Save any required contents.
+        This will take you back to the first screen.  Choose the 'OK' option to exit.
       %br
       %li
-        Click close.
-      %p
+        Confirm the changes on the next screen to finish.  Firewall configuration is complete.
+        %br
         %center
-          %a{ :href => "Images/Firewall Images/end_config.png",
-              :target => "_blank" }
-            %img.thumbnail{ :src => "Images/Thumbnails/end_config_thumb.png",
-                  :title => "End Configuration Page - click to view at full size in a new window",
-                  :alt => "End Configuration Page - click to view at full size in a new window" }
-
+          %img.thumbnail{ :src => "Images/Firewall Images/confirm_changes.png",
+                          :title => "Confirm the changes", :alt => "Confirm the changes" }
 
 %a.button{ :href => "first_login.html", :title => "First Login" }
   First Login
-  %img{:src => "/images/button-right.png", :alt => "→"}        
-            
+  %img{:src => "/images/button-right.png", :alt => "→"}
+
